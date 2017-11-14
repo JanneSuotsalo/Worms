@@ -75,7 +75,7 @@ public class PlayerController : MonoBehaviour {
 			jump = true;
 			myRigibody.AddForce(new Vector2(0,jumpForce));
 			animator.SetBool ("Jump", true);
-		}animator.
+		}
 
 
 	  }
