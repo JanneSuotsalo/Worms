@@ -26,19 +26,23 @@ public class PlayerController : MonoBehaviour {
 	private float jumpForce;
 
 	public GameObject LeftBullet,RightBullet;
-	Transform ShootingPos;
+	Transform shootingPos;
 
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+	{
 		animator = GetComponent<Animator> ();
 		myRigibody = GetComponent<Rigidbody2D> ();
 		facingRight = true;
 		crouch = false;
+
+		shootingPos = transform.Find ("shootingPos");
 	}
 	
 	// Update is called once per frame
-	void Update() {
+	void Update()
+	{
 		
 		HandleInput ();
 
@@ -46,7 +50,8 @@ public class PlayerController : MonoBehaviour {
 	}
 
 
-	void FixedUpdate () {
+	void FixedUpdate ()
+	{
 		Vector2 velocity = Vector2.zero;
 		float horizontal = Input.GetAxis ("Horizontal");
 		isGrounded = IsGrounded();
@@ -58,7 +63,8 @@ public class PlayerController : MonoBehaviour {
 
 		ResetValues ();
 	}
-	private void HandleMovement(float horizontal) {
+	private void HandleMovement(float horizontal) 
+	{
 		myRigibody.velocity = new Vector2 (horizontal * movementSpeed, myRigibody.velocity.y);
 		animator.SetFloat ("Speed", Mathf.Abs (horizontal));
 
@@ -77,7 +83,8 @@ public class PlayerController : MonoBehaviour {
 
 
 	  }
-	private void flip(float horizontal) {
+	private void flip(float horizontal)
+	{
 		if (horizontal > 0 && !facingRight || horizontal < 0 && facingRight) {
 			facingRight = !facingRight;
 			Vector3 theScale = transform.localScale;
@@ -86,7 +93,8 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
-	private bool IsGrounded() {
+	private bool IsGrounded() 
+	{
 		if (myRigibody.velocity.y <= 0) {
 			foreach (Transform point in groundPoints) {
 				Collider2D[] colliders = Physics2D.OverlapCircleAll (point.position, groundRadius, whatIsGround);
@@ -101,7 +109,8 @@ public class PlayerController : MonoBehaviour {
 		return false;
 	}
 
-	private void HandleInput() {
+	private void HandleInput()
+	{
 		if (Input.GetKeyDown (KeyCode.W)) {
 			jump = true;
 		}
@@ -109,17 +118,28 @@ public class PlayerController : MonoBehaviour {
 			crouch = true;
 			movementSpeed = 1;
 		}		
-			if(Input.GetKeyUp(KeyCode.S)) {
-			animator.SetBool("Crouch", false);
+		if (Input.GetKeyUp (KeyCode.S)) {
+			animator.SetBool ("Crouch", false);
 			movementSpeed = 8;
 			crouch = false;
-     	}
-
-
-
+		}
+		if(Input.GetKey (KeyCode.K)) {
+			Shoot();
+		}
 	}
 
-	private void ResetValues() {
+		public void Shoot()
+		{
+		if (facingRight) {
+			Instantiate (RightBullet, shootingPos.position, Quaternion.identity);
+		}
+		if (!facingRight) {
+			Instantiate (LeftBullet, shootingPos.position, Quaternion.identity);
+		}
+	}
+
+	private void ResetValues() 
+	{
 		jump = false;
 		if (isGrounded && !jump && !crouch && myRigibody.velocity.x == 0) {
 			animator.Play ("Player Idle");
