@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114260648222586090}
   - component: {fileID: 114238806656553218}
   m_Layer: 0
-  m_Name: RightBullet
+  m_Name: LeftBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -86,7 +86,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d802fa1ecf4bd5e45a48da864ca51fef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: {x: 10, y: 0}
+  speed: {x: -10, y: 0}
 --- !u!212 &212040791232614086
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -195,7 +195,7 @@ GameObject:
   - component: {fileID: 68722608}
   - component: {fileID: 68722609}
   m_Layer: 8
-  m_Name: ShootingPos
+  m_Name: shootingPos
   m_TagString: Untagged
   m_Icon: {fileID: -6431860639581277017, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -258,52 +258,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
---- !u!1001 &167902870
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4874027908256992, guid: 7848dc07a8788c34ca31c132a0b08a75, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0.392
-      objectReference: {fileID: 0}
-    - target: {fileID: 4874027908256992, guid: 7848dc07a8788c34ca31c132a0b08a75, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 2.031
-      objectReference: {fileID: 0}
-    - target: {fileID: 4874027908256992, guid: 7848dc07a8788c34ca31c132a0b08a75, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -0.61875546
-      objectReference: {fileID: 0}
-    - target: {fileID: 4874027908256992, guid: 7848dc07a8788c34ca31c132a0b08a75, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4874027908256992, guid: 7848dc07a8788c34ca31c132a0b08a75, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4874027908256992, guid: 7848dc07a8788c34ca31c132a0b08a75, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4874027908256992, guid: 7848dc07a8788c34ca31c132a0b08a75, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4874027908256992, guid: 7848dc07a8788c34ca31c132a0b08a75, type: 2}
-      propertyPath: m_RootOrder
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 1783561199083894, guid: 7848dc07a8788c34ca31c132a0b08a75, type: 2}
-      propertyPath: m_Name
-      value: RightBullet
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 7848dc07a8788c34ca31c132a0b08a75, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &278670621
 GameObject:
   m_ObjectHideFlags: 0
@@ -1609,6 +1563,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967039
   jumpForce: 2000
+  LeftBullet: {fileID: 1783561199083894, guid: b463e72ef77b1c5419e202cd890a7093, type: 2}
+  RightBullet: {fileID: 1783561199083894, guid: 7848dc07a8788c34ca31c132a0b08a75,
+    type: 2}
 --- !u!50 &1445598731
 Rigidbody2D:
   serializedVersion: 4

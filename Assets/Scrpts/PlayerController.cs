@@ -8,8 +8,6 @@ public class PlayerController : MonoBehaviour {
 
 	private Rigidbody2D myRigibody;
 
-	private bool facingRight;
-
 	[SerializeField]
 	private float movementSpeed;
 
@@ -22,14 +20,14 @@ public class PlayerController : MonoBehaviour {
 	[SerializeField]
 	private LayerMask whatIsGround;
 
-	private bool isGrounded;
-
-	private bool jump;
+	private bool isGrounded, crouch, jump,facingRight;
 
 	[SerializeField]
 	private float jumpForce;
 
-	private bool crouch;
+	public GameObject LeftBullet,RightBullet;
+	Transform ShootingPos;
+
 
 	// Use this for initialization
 	void Start () {
@@ -116,6 +114,9 @@ public class PlayerController : MonoBehaviour {
 			movementSpeed = 8;
 			crouch = false;
      	}
+
+
+
 	}
 
 	private void ResetValues() {
