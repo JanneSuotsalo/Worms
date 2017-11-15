@@ -12,10 +12,4 @@ public class DestroyWithDelay : MonoBehaviour {
 	{
 		Destroy (gameObject, delay);
 	}
-	
-	// Update is called once per frame
-	void Update () 
-	{
-		
-	}
 }

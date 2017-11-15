@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
 
@@ -28,6 +29,12 @@ public class PlayerController : MonoBehaviour {
 	public GameObject LeftBullet,RightBullet;
 	Transform shootingPos;
 
+	bool gameOn = true;
+	float time=0f;
+
+
+
+
 
 	// Use this for initialization
 	void Start ()
@@ -47,6 +54,10 @@ public class PlayerController : MonoBehaviour {
 		HandleInput ();
 
 		animator.SetBool ("Air", !isGrounded);
+
+		if (gameOn) {
+			if(time > 0) time -= Time.deltaTime;
+		}
 	}
 
 
@@ -128,13 +139,18 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
-		public void Shoot()
+	public void Shoot()
 		{
-		if (facingRight) {
-			Instantiate (RightBullet, shootingPos.position, Quaternion.identity);
-		}
-		if (!facingRight) {
-			Instantiate (LeftBullet, shootingPos.position, Quaternion.identity);
+		if(time <= 0) {
+			if (facingRight) {
+				Instantiate (RightBullet, shootingPos.position, Quaternion.identity);
+			}
+
+			if (!facingRight) {
+				Instantiate (LeftBullet, shootingPos.position, Quaternion.identity);
+			}
+
+			time = 0.2f;
 		}
 	}
 
