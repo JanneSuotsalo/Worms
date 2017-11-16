@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour {
 	[SerializeField]
 	private LayerMask whatIsGround;
 
-	private bool isGrounded, crouch, jump,facingRight;
+	private bool isGrounded, crouch, jump,facingRight, haveGun,shoot;
 
 	[SerializeField]
 	private float jumpForce;
@@ -43,6 +43,7 @@ public class PlayerController : MonoBehaviour {
 		myRigibody = GetComponent<Rigidbody2D> ();
 		facingRight = true;
 		crouch = false;
+		haveGun = true;
 
 		shootingPos = transform.Find ("shootingPos");
 	}
@@ -136,6 +137,7 @@ public class PlayerController : MonoBehaviour {
 		}
 		if(Input.GetKey (KeyCode.K)) {
 			Shoot();
+			shoot = true;
 		}
 	}
 
@@ -144,13 +146,19 @@ public class PlayerController : MonoBehaviour {
 		if(time <= 0) {
 			if (facingRight) {
 				Instantiate (RightBullet, shootingPos.position, Quaternion.identity);
+			}
+			if (facingRight && crouch && haveGun) {
+				Instantiate (RightBullet, shootingPos.position, Quaternion.identity);
 				animator.SetBool ("CrouchShoot", true);
 			}
 
+			if (!facingRight && crouch && haveGun) {
+				Instantiate (LeftBullet, shootingPos.position, Quaternion.identity);
+				animator.SetBool ("CrouchShoot", true);
+			}
 			if (!facingRight) {
 				Instantiate (LeftBullet, shootingPos.position, Quaternion.identity);
 			}
-
 			time = 0.2f;
 		}
 	}
@@ -158,8 +166,15 @@ public class PlayerController : MonoBehaviour {
 	private void ResetValues() 
 	{
 		jump = false;
-		if (isGrounded && !jump && !crouch && myRigibody.velocity.x == 0) {
+		if (isGrounded && !jump && !crouch && myRigibody.velocity.x == 0 && haveGun && shoot) {
+			animator.Play ("PlayerIdleShoot");
+		}
+		if (isGrounded && !jump && !crouch && myRigibody.velocity.x == 0 && haveGun) {
+			animator.Play ("IdleGun");
+		}
+		if (isGrounded && !jump && !crouch && myRigibody.velocity.x == 0 && !haveGun && !shoot) {
 			animator.Play ("Player Idle");
 		}
+		shoot = false;
 	}
 }
