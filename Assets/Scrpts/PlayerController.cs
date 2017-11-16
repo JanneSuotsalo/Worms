@@ -144,6 +144,7 @@ public class PlayerController : MonoBehaviour {
 		if(time <= 0) {
 			if (facingRight) {
 				Instantiate (RightBullet, shootingPos.position, Quaternion.identity);
+				animator.SetBool ("CrouchShoot", true);
 			}
 
 			if (!facingRight) {
