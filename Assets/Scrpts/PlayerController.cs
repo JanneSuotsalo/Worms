@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour {
 		//
 
 		if (isGrounded && !jump && !crouch && myRigibody.velocity.x == 0 && haveGun && !shoot) {
-			animator.Play ("IdleGun");
+			animator.Play ("PlayerIdleGun");
 		}
 		if (isGrounded && !jump && !crouch && myRigibody.velocity.x == 0 && !haveGun && !shoot) {
 			animator.Play ("Player Idle");
@@ -69,21 +69,24 @@ public class PlayerController : MonoBehaviour {
 
 	protected void HandleInput()
 	{
+		crouch = false;
+	
 		if (Input.GetKeyDown (KeyCode.W)) {
 			jump = true;
 		}
-		if (Input.GetKeyDown (KeyCode.S)) {
+
+		if (Input.GetKey (KeyCode.S)) {
 			crouch = true;
 			movementSpeed = 1;
 		}		
-		if (Input.GetKeyUp (KeyCode.S)) {
-			animator.SetBool ("Crouch", false);
-			movementSpeed = 8;
-			crouch = false;
-		}
 		if(Input.GetKey (KeyCode.K)) {
 			Shoot();
 			shoot = true;
+		}
+
+		if (!crouch) {
+			animator.SetBool ("Crouch", false);
+			movementSpeed = 8;
 		}
 	}
 

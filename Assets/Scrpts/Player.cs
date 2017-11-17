@@ -12,7 +12,7 @@ public class Player : PlayerController {
 		myRigibody = GetComponent<Rigidbody2D> ();
 		facingRight = true;
 		crouch = false;
-		haveGun = false;
+		haveGun = true;
 	
 		shootingPos = transform.Find ("shootingPos");
 	}
