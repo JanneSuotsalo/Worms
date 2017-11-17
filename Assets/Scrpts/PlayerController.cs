@@ -169,7 +169,7 @@ public class PlayerController : MonoBehaviour {
 		if (isGrounded && !jump && !crouch && myRigibody.velocity.x == 0 && haveGun && shoot) {
 			animator.Play ("PlayerIdleShoot");
 		}
-		if (isGrounded && !jump && !crouch && myRigibody.velocity.x == 0 && haveGun) {
+		if (isGrounded && !jump && !crouch && myRigibody.velocity.x == 0 && haveGun && !shoot) {
 			animator.Play ("IdleGun");
 		}
 		if (isGrounded && !jump && !crouch && myRigibody.velocity.x == 0 && !haveGun && !shoot) {
