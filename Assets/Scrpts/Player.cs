@@ -12,7 +12,7 @@ public class Player : PlayerController {
 		myRigibody = GetComponent<Rigidbody2D> ();
 		facingRight = true;
 		crouch = false;
-		haveGun = true;
+		haveGun = false;
 	
 		shootingPos = transform.Find ("shootingPos");
 	}
@@ -27,7 +27,6 @@ public class Player : PlayerController {
 		if (gameOn) {
 			if(time > 0) time -= Time.deltaTime;
 
-			ResetValues ();
 		}
 	}
 
@@ -44,6 +43,7 @@ public class Player : PlayerController {
 
 		transform.Translate(velocity);
 
+		ResetValues ();
 	}
 
 	protected void flip(float horizontal)
