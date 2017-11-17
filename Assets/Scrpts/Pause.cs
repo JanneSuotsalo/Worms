@@ -10,11 +10,11 @@ public class Pause : MonoBehaviour
 	public GameObject Menu;
 	public Button MenuButton;
 
-
 	void Start ()
 	{
 		Paused = false;
 		MenuButton.onClick.AddListener (OnPause);
+
 	}
 
 	void Update ()
