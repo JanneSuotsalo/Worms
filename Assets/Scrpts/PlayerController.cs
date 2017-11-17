@@ -35,35 +35,55 @@ public class PlayerController : MonoBehaviour {
 	protected bool gameOn = true;
 	protected float time=0f;
 
-	protected void HandleMovement(float horizontal) 
+	protected void HandleMovement(float horizontal)
 	{
-			myRigibody.velocity = new Vector2 (horizontal * movementSpeed, myRigibody.velocity.y);
-			animator.SetFloat ("Speed", Mathf.Abs (horizontal));
+		//Runnong
+		myRigibody.velocity = new Vector2 (horizontal * movementSpeed, myRigibody.velocity.y);
+		animator.SetFloat ("Speed", Mathf.Abs (horizontal));
 
-		if (isGrounded && crouch && !shoot) {
+		if (isGrounded && haveGun){
+			myRigibody.velocity = new Vector2 (horizontal * movementSpeed, myRigibody.velocity.y);
+		animator.SetFloat ("RunGun", Mathf.Abs (horizontal)); 
+	}
+
+	//Crouching
+		if (isGrounded && crouch && !shoot && !haveGun) {
+			isGrounded = true;
+			crouch = true;
+			animator.SetBool ("Crouch", true);
+		}
+		if (isGrounded && crouch && !shoot && haveGun) {
 			isGrounded = true;
 			crouch = true;
 			animator.SetBool ("Crouch", true);
 		}
 
-		if (isGrounded && jump && !shoot) {
+		//Jumping
+		if (isGrounded && jump && !shoot && !haveGun) {
 			isGrounded = false;
 			jump = true;
-			myRigibody.AddForce(new Vector2(0,jumpForce));
+			myRigibody.AddForce(new Vector2(0, jumpForce));
 			animator.SetBool ("Jump", true);
 		}
-		//if (isGrounded && jump && shoot) {
-		//	isGrounded = false;
-		//	jump = true;
-			//myRigibody.AddForce(new Vector2(0,jumpForce));
-			//animator.SetBool ("JumpShoot", true);
-		//
-
-		if (isGrounded && !jump && !crouch && myRigibody.velocity.x == 0 && haveGun && !shoot) {
-			animator.Play ("PlayerIdleGun");
+		if (isGrounded && jump && !shoot && haveGun) {
+			isGrounded = false;
+			jump = true;
+			myRigibody.AddForce (new Vector2 (0, jumpForce));
+			animator.SetBool ("Jump", true);
 		}
+		if (isGrounded && jump && shoot && haveGun	) {
+			isGrounded = false;
+			jump = true;
+			myRigibody.AddForce (new Vector2 (0, jumpForce));
+			animator.SetBool ("JumpShoot", true);
+		}
+
+		//Idle
 		if (isGrounded && !jump && !crouch && myRigibody.velocity.x == 0 && !haveGun && !shoot) {
 			animator.Play ("Player Idle");
+		}
+		if (isGrounded && !jump && !crouch && myRigibody.velocity.x == 0 && haveGun && !shoot) {
+			animator.SetBool ("HaveGun", true);
 		}
 	  }
 
@@ -94,14 +114,15 @@ public class PlayerController : MonoBehaviour {
 		{
 		if(haveGun) {
 			if (time <= 0) {
+				//Crouching
 				if (facingRight) {
 					Instantiate (RightBullet, shootingPos.position, Quaternion.identity);
 				}
-				if (facingRight && crouch && haveGun) {
+				if (facingRight && crouch) {
 					Instantiate (RightBullet, shootingPos.position, Quaternion.identity);
 					animator.SetBool ("CrouchShoot", true);
 				}
-				if (facingRight && !crouch && haveGun) {
+				if (facingRight && !crouch) {
 					Instantiate (RightBullet, shootingPos.position, Quaternion.identity);
 					animator.SetBool ("CrouchShoot", false);
 				}
@@ -115,14 +136,15 @@ public class PlayerController : MonoBehaviour {
 					animator.SetBool ("CrouchShoot", false);
 				}
 
+
 				if (!facingRight) {
 					Instantiate (LeftBullet, shootingPos.position, Quaternion.identity);
 				}
-				}
-				if (isGrounded && !jump && !crouch && myRigibody.velocity.x == 0 && haveGun && shoot) {
+				if (isGrounded && !jump && !crouch && myRigibody.velocity.x == 0 && shoot) {
 					animator.Play ("PlayerIdleShoot");
 				}
 			time = 0.2f;
 			}
 	}
+}
 }
