@@ -5,82 +5,39 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
 
-	private Animator animator;
+	protected Animator animator;
 
-	private Rigidbody2D myRigibody;
-
-	[SerializeField]
-	private float movementSpeed;
+	protected Rigidbody2D myRigibody;
 
 	[SerializeField]
-	private Transform[] groundPoints;
+	protected float movementSpeed;
+
+	[SerializeField]
+	protected Transform[] groundPoints;
 		
 	[SerializeField]
-	private float groundRadius;
+	protected float groundRadius;
 
 	[SerializeField]
-	private LayerMask whatIsGround;
+	protected LayerMask whatIsGround;
 
-	private bool isGrounded, crouch, jump,facingRight, haveGun,shoot;
+	protected bool isGrounded, crouch, jump,facingRight, haveGun,shoot;
 
 	[SerializeField]
-	private float jumpForce;
+	protected float jumpForce;
 
 	public GameObject LeftBullet,RightBullet;
-	Transform shootingPos;
+	protected Transform shootingPos;
 
-	bool gameOn = true;
-	float time=0f;
+	protected bool gameOn = true;
+	protected float time=0f;
 
-
-
-
-
-	// Use this for initialization
-	void Start ()
-	{
-		animator = GetComponent<Animator> ();
-		myRigibody = GetComponent<Rigidbody2D> ();
-		facingRight = true;
-		crouch = false;
-		haveGun = true;
-
-		shootingPos = transform.Find ("shootingPos");
-	}
-	
-	// Update is called once per frame
-	void Update()
-	{
-		
-		HandleInput ();
-
-		animator.SetBool ("Air", !isGrounded);
-
-		if (gameOn) {
-			if(time > 0) time -= Time.deltaTime;
-		}
-	}
-
-
-	void FixedUpdate ()
-	{
-		Vector2 velocity = Vector2.zero;
-		float horizontal = Input.GetAxis ("Horizontal");
-		isGrounded = IsGrounded();
-
-		HandleMovement (horizontal);
-		flip (horizontal);
-
-		transform.Translate(velocity);
-
-		ResetValues ();
-	}
-	private void HandleMovement(float horizontal) 
+	protected void HandleMovement(float horizontal) 
 	{
 		myRigibody.velocity = new Vector2 (horizontal * movementSpeed, myRigibody.velocity.y);
 		animator.SetFloat ("Speed", Mathf.Abs (horizontal));
 
-		if (isGrounded && crouch) {
+		if (isGrounded && crouch && !shoot) {
 			isGrounded = true;
 			crouch = true;
 			animator.SetBool ("Crouch", true);
@@ -95,33 +52,8 @@ public class PlayerController : MonoBehaviour {
 
 
 	  }
-	private void flip(float horizontal)
-	{
-		if (horizontal > 0 && !facingRight || horizontal < 0 && facingRight) {
-			facingRight = !facingRight;
-			Vector3 theScale = transform.localScale;
-			theScale.x *= -1;
-			transform.localScale = theScale;
-		}
-	}
 
-	private bool IsGrounded() 
-	{
-		if (myRigibody.velocity.y <= 0) {
-			foreach (Transform point in groundPoints) {
-				Collider2D[] colliders = Physics2D.OverlapCircleAll (point.position, groundRadius, whatIsGround);
-
-				for (int i = 0; i < colliders.Length; i++) {
-					if (colliders [i].gameObject != gameObject) {
-						return true;
-					}
-				}
-			}
-		}
-		return false;
-	}
-
-	private void HandleInput()
+	protected void HandleInput()
 	{
 		if (Input.GetKeyDown (KeyCode.W)) {
 			jump = true;
@@ -141,7 +73,7 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
-	public void Shoot()
+	protected void Shoot()
 		{
 		if(time <= 0) {
 			if (facingRight) {
@@ -161,20 +93,5 @@ public class PlayerController : MonoBehaviour {
 			}
 			time = 0.2f;
 		}
-	}
-
-	private void ResetValues() 
-	{
-		jump = false;
-		if (isGrounded && !jump && !crouch && myRigibody.velocity.x == 0 && haveGun && shoot) {
-			animator.Play ("PlayerIdleShoot");
-		}
-		if (isGrounded && !jump && !crouch && myRigibody.velocity.x == 0 && haveGun && !shoot) {
-			animator.Play ("IdleGun");
-		}
-		if (isGrounded && !jump && !crouch && myRigibody.velocity.x == 0 && !haveGun && !shoot) {
-			animator.Play ("Player Idle");
-		}
-		shoot = false;
 	}
 }
