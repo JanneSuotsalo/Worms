@@ -13,7 +13,7 @@ public class Player : PlayerController {
 		facingRight = true;
 		crouch = false;
 		haveGun = true;
-		isGrounded = true;
+	
 		shootingPos = transform.Find ("shootingPos");
 	}
 
@@ -21,7 +21,6 @@ public class Player : PlayerController {
 	void Update()
 	{
 
-		HandleInput ();
 
 		animator.SetBool ("Air", !isGrounded);
 
@@ -39,6 +38,7 @@ public class Player : PlayerController {
 		float horizontal = Input.GetAxis ("Horizontal");
 		isGrounded = IsGrounded();
 
+		HandleInput ();
 		HandleMovement (horizontal);
 		flip (horizontal);
 
@@ -75,15 +75,6 @@ public class Player : PlayerController {
 	protected void ResetValues() 
 	{
 		jump = false;
-		if (isGrounded && !jump && !crouch && myRigibody.velocity.x == 0 && haveGun && shoot) {
-			animator.Play ("PlayerIdleShoot");
-		}
-		if (isGrounded && !jump && !crouch && myRigibody.velocity.x == 0 && haveGun && !shoot) {
-			animator.Play ("IdleGun");
-		}
-		if (isGrounded && !jump && !crouch && myRigibody.velocity.x == 0 && !haveGun && !shoot) {
-			animator.Play ("Player Idle");
-		}
 		shoot = false;
 	}
 }

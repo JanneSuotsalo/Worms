@@ -49,8 +49,6 @@ public class PlayerController : MonoBehaviour {
 			myRigibody.AddForce(new Vector2(0,jumpForce));
 			animator.SetBool ("Jump", true);
 		}
-
-
 	  }
 
 	protected void HandleInput()
@@ -92,6 +90,15 @@ public class PlayerController : MonoBehaviour {
 				Instantiate (LeftBullet, shootingPos.position, Quaternion.identity);
 			}
 			time = 0.2f;
+		}
+		if (isGrounded && !jump && !crouch && myRigibody.velocity.x == 0 && haveGun && shoot) {
+			animator.Play ("PlayerIdleShoot");
+		}
+		if (isGrounded && !jump && !crouch && myRigibody.velocity.x == 0 && haveGun && !shoot) {
+			animator.Play ("IdleGun");
+		}
+		if (isGrounded && !jump && !crouch && myRigibody.velocity.x == 0 && !haveGun && !shoot) {
+			animator.Play ("Player Idle");
 		}
 	}
 }
