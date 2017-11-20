@@ -90,6 +90,7 @@ public class PlayerController : MonoBehaviour {
 	protected void HandleInput()
 	{
 		crouch = false;
+		shoot = false;
 	
 		if (Input.GetKeyDown (KeyCode.W)) {
 			jump = true;
@@ -100,7 +101,6 @@ public class PlayerController : MonoBehaviour {
 			movementSpeed = 1;
 		}		
 		if(Input.GetKey (KeyCode.K)) {
-			Shoot();
 			shoot = true;
 		}
 
@@ -112,7 +112,7 @@ public class PlayerController : MonoBehaviour {
 
 	protected void Shoot()
 		{
-		if(haveGun) {
+		if(haveGun && shoot) {
 			if (time <= 0) {
 				//Crouching
 				if (facingRight) {
@@ -141,10 +141,12 @@ public class PlayerController : MonoBehaviour {
 					Instantiate (LeftBullet, shootingPos.position, Quaternion.identity);
 				}
 				if (isGrounded && !jump && !crouch && myRigibody.velocity.x == 0 && shoot) {
-					animator.Play ("PlayerIdleShoot");
+					animator.SetBool ("IdleShoot", true);
+					shoot = false;
 				}
+				shoot = false;
 			time = 0.2f;
 			}
+		}
 	}
-}
 }

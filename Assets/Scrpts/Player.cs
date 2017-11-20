@@ -13,6 +13,7 @@ public class Player : PlayerController {
 		facingRight = true;
 		crouch = false;
 		haveGun = true;
+		shoot = false;
 	
 		shootingPos = transform.Find ("shootingPos");
 	}
@@ -38,6 +39,7 @@ public class Player : PlayerController {
 		isGrounded = IsGrounded();
 
 		HandleInput ();
+		Shoot ();
 		HandleMovement (horizontal);
 		flip (horizontal);
 

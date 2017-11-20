@@ -253,7 +253,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.31, y: 0.35}
+  m_Size: {x: 0.33, y: 0.27}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
@@ -3577,7 +3577,6 @@ GameObject:
   - component: {fileID: 1445598728}
   - component: {fileID: 1445598727}
   - component: {fileID: 1445598732}
-  - component: {fileID: 1445598733}
   - component: {fileID: 1445598731}
   - component: {fileID: 1445598730}
   m_Layer: 8
@@ -3740,21 +3739,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.20839137, y: 0.4391086}
   m_EdgeRadius: 0
---- !u!58 &1445598733
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1445598726}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.016138697, y: -0.12718998}
-  serializedVersion: 2
-  m_Radius: 0.09397038
 --- !u!1 &1501309446
 GameObject:
   m_ObjectHideFlags: 0
