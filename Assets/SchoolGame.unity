@@ -1984,7 +1984,7 @@ Transform:
   m_GameObject: {fileID: 1014953201}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -375.36, y: -212.32, z: 5.5}
-  m_LocalScale: {x: 4.17601, y: 3.69358, z: 1}
+  m_LocalScale: {x: 8, y: 8, z: 1}
   m_Children: []
   m_Father: {fileID: 58002691}
   m_RootOrder: 12
@@ -2003,7 +2003,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0.4
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -2835,6 +2835,8 @@ MonoBehaviour:
   LeftBullet: {fileID: 1783561199083894, guid: 8cf06514ce66a7a4496d116bc4371246, type: 2}
   RightBullet: {fileID: 1783561199083894, guid: 4ac37fbd8dbbda940a13a5c3cdeb0490,
     type: 2}
+  curHealth: 0
+  maxHealth: 100
 --- !u!50 &1445598731
 Rigidbody2D:
   serializedVersion: 4

@@ -2,12 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player : PlayerController {
+
+
+	//stats
+	public int curHealth;
+	public int maxHealth = 100;
+	private Scene scene;
+
 
 	// Use this for initialization
 	void Start ()
 	{
+		scene = SceneManager.GetActiveScene ();
 		animator = GetComponent<Animator> ();
 		myRigibody = GetComponent<Rigidbody2D> ();
 		facingRight = true;
@@ -16,6 +25,8 @@ public class Player : PlayerController {
 		shoot = false;
 	
 		shootingPos = transform.Find ("shootingPos");
+
+		curHealth = maxHealth;
 	}
 
 	// Update is called once per frame
@@ -28,6 +39,13 @@ public class Player : PlayerController {
 		if (gameOn) {
 			if(time > 0) time -= Time.deltaTime;
 
+		}
+
+		if (curHealth > maxHealth) {
+			curHealth = maxHealth;
+		}
+		if (curHealth <= 0) {
+			Die ();
 		}
 	}
 
@@ -78,5 +96,10 @@ public class Player : PlayerController {
 	{
 		jump = false;
 		shoot = false;
+	}
+
+	void Die() {
+		//restart
+		SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
 	}
 }
