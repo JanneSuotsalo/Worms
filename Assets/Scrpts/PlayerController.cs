@@ -118,6 +118,10 @@ public class PlayerController : MonoBehaviour {
 				if (facingRight) {
 					Instantiate (RightBullet, shootingPos.position, Quaternion.identity);
 				}
+				if (!facingRight) {
+					Instantiate (LeftBullet, shootingPos.position, Quaternion.identity);
+				}
+
 				if (facingRight && crouch) {
 					Instantiate (RightBullet, shootingPos.position, Quaternion.identity);
 					animator.SetBool ("CrouchShoot", true);
@@ -136,10 +140,6 @@ public class PlayerController : MonoBehaviour {
 					animator.SetBool ("CrouchShoot", false);
 				}
 
-
-				if (!facingRight) {
-					Instantiate (LeftBullet, shootingPos.position, Quaternion.identity);
-				}
 				if (isGrounded && !jump && !crouch && myRigibody.velocity.x == 0 && shoot) {
 					animator.SetBool ("IdleShoot", true);
 					shoot = false;
