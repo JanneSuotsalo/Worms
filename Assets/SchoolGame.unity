@@ -2505,9 +2505,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1119897777}
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1763845844}
+        m_MethodName: Continue
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2949,9 +2949,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1119897777}
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1763845844}
+        m_MethodName: OnPause
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3006,7 +3006,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4427ad96fd524854d9b4e1a26c1fc1c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Menu: {fileID: 1119897777}
+  PauseMenu: {fileID: 0}
   MenuButton: {fileID: 1591290031}
 --- !u!1 &1641632102
 GameObject:
@@ -3154,6 +3154,7 @@ GameObject:
   - component: {fileID: 1763845840}
   - component: {fileID: 1763845839}
   - component: {fileID: 1763845843}
+  - component: {fileID: 1763845844}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3239,6 +3240,19 @@ MonoBehaviour:
   lookAheadFactor: 0
   lookAheadReturnSpeed: 0.5
   lookAheadMoveThreshold: 1
+--- !u!114 &1763845844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1763845838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4427ad96fd524854d9b4e1a26c1fc1c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PauseMenu: {fileID: 1119897777}
+  MenuButton: {fileID: 1591290031}
 --- !u!1 &1796726383
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,18 +14,38 @@ public class Pause : MonoBehaviour
 
 	void Start ()
 	{
-		PauseMenu.SetActive (false);
 		scene = SceneManager.GetActiveScene ();
 		MenuButton.onClick.AddListener (OnPause);
 	}
 
 	void update ()
 	{
-		if (Input.GetButton("MenuButton")) {
+		if (Input.GetButton ("MenuButton")) {
+			OnPause ();
+		} else {
+			UnPause ();
 		}
 	}
 
+	public void OnPause ()
+	{
+		PauseMenu.SetActive (true);
+		Time.timeScale = 0;
+	}
 
+	public void UnPause ()
+	{
+		PauseMenu.SetActive (false);
+		Time.timeScale = 1;
+	}
+
+	public void Continue () {
+		UnPause ();
+	}
+
+	public void Restart () {
+		SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
+	}
 }
 
 //	void Start ()
