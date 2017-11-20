@@ -6,31 +6,37 @@ using UnityEngine.UI;
 public class Pause : MonoBehaviour
 {
 
-	public bool Paused;
+	private bool paused = false;
 	public GameObject Menu;
 	public Button MenuButton;
 
 	void Start ()
 	{
-		Paused = false;
-		MenuButton.onClick.AddListener (OnPause);
+		Menu.SetActive (false);
+		MenuButton.onClick.AddListener (paused);
 
 	}
 
 	void Update ()
 	{
-		if (!Menu.activeSelf && Time.timeScale == 0) {
-			UnPause ();
+		if (paused) {
+			Menu.SetActive (true);
+			Time.timeScale = 0;
+		}
+
+		if (!paused) {
+			Menu.SetActive (false);
+			Time.timeScale = 1;
 		}
 	}
 
-	public void OnPause ()
+	public void Continue ()
 	{
-		Time.timeScale = 0;
+		paused = false;
 	}
 
-	public void UnPause ()
+	public void Exit ()
 	{
-		Time.timeScale = 1;
+		Application.Quit ();
 	}
 }
