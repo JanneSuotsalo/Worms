@@ -9,46 +9,62 @@ public class Pause : MonoBehaviour
 
 	private bool paused;
 	private Scene scene;
-	public GameObject Menu;
+	public GameObject PauseMenu;
 	public Button MenuButton;
 
 	void Start ()
 	{
+		PauseMenu.SetActive (false);
 		scene = SceneManager.GetActiveScene ();
 		MenuButton.onClick.AddListener (OnPause);
-
 	}
 
-	void Update ()
+	void update ()
 	{
-		if (!Menu.activeSelf && Time.timeScale == 0) {
-			UnPause ();
-		}
-		if (Menu.activeSelf && Time.timeScale == 1) {
-			OnPause ();
+		if (Input.GetButton("MenuButton")) {
 		}
 	}
 
-	public void OnPause ()
-	{
-		Time.timeScale = 0;
-	}
 
-	public void UnPause ()
-	{
-		Time.timeScale = 1;
-	}
-
-	public void Restart ()
-	{
-		SceneManager.LoadScene (scene.name);
-	}
 }
 
-	//	public void Exit ()
-	//	{
-	//		Application.Quit ();
-	//	}
+//	void Start ()
+//	{
+//		scene = SceneManager.GetActiveScene ();
+//		MenuButton.onClick.AddListener (OnPause);
+//
+//	}
+//
+//	void Update ()
+//	{
+//		if (!Menu.activeSelf && Time.timeScale == 0) {
+//			UnPause ();
+//		}
+//		if (Menu.activeSelf && Time.timeScale == 1) {
+//			OnPause ();
+//		}
+//	}
+//
+//	public void OnPause ()
+//	{
+//		Time.timeScale = 0;
+//	}
+//
+//	public void UnPause ()
+//	{
+//		Time.timeScale = 1;
+//	}
+//
+//	public void Restart ()
+//	{
+//		SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
+//	}
+//}
+
+//	public void Exit ()
+//	{
+//		Application.Quit ();
+//	}
 
 
 
