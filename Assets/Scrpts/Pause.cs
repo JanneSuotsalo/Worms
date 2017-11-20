@@ -2,41 +2,88 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Pause : MonoBehaviour
 {
 
-	private bool paused = false;
+	private bool paused;
+	private Scene scene;
 	public GameObject Menu;
 	public Button MenuButton;
 
 	void Start ()
 	{
-		Menu.SetActive (false);
-		MenuButton.onClick.AddListener (paused);
+		scene = SceneManager.GetActiveScene ();
+		MenuButton.onClick.AddListener (OnPause);
 
 	}
 
 	void Update ()
 	{
-		if (paused) {
-			Menu.SetActive (true);
-			Time.timeScale = 0;
+		if (!Menu.activeSelf && Time.timeScale == 0) {
+			UnPause ();
 		}
-
-		if (!paused) {
-			Menu.SetActive (false);
-			Time.timeScale = 1;
+		if (Menu.activeSelf && Time.timeScale == 1) {
+			OnPause ();
 		}
 	}
 
-	public void Continue ()
+	public void OnPause ()
 	{
-		paused = false;
+		Time.timeScale = 0;
 	}
 
-	public void Exit ()
+	public void UnPause ()
 	{
-		Application.Quit ();
+		Time.timeScale = 1;
+	}
+
+	public void Restart ()
+	{
+		SceneManager.LoadScene (scene.name);
 	}
 }
+
+	//	public void Exit ()
+	//	{
+	//		Application.Quit ();
+	//	}
+
+
+
+//using System.Collections.Generic;
+//using UnityEngine;
+//using UnityEngine.UI;
+//
+//public class Pause : MonoBehaviour
+//{
+//
+//	private bool paused;
+//	public GameObject Menu;
+//	public Button MenuButton;
+//
+//	void Start ()
+//	{
+//		paused = false;
+//		MenuButton.onClick.AddListener (OnPause);
+//
+//	}
+//
+//	void Update ()
+//	{
+//		if (!Menu.activeSelf && Time.timeScale == 0) {
+//			UnPause ();
+//		}
+//	}
+//
+//	public void OnPause ()
+//	{
+//		Time.timeScale = 0;
+//	}
+//
+//	public void UnPause ()
+//	{
+//		Time.timeScale = 1;
+//	}
+//}
