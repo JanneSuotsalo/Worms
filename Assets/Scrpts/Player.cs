@@ -39,8 +39,8 @@ public class Player : PlayerController {
 		isGrounded = IsGrounded();
 
 		HandleInput ();
-		Shoot ();
 		HandleMovement (horizontal);
+		Shoot ();
 		flip (horizontal);
 
 		transform.Translate(velocity);

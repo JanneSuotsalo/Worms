@@ -85,6 +85,9 @@ public class PlayerController : MonoBehaviour {
 		if (isGrounded && !jump && !crouch && myRigibody.velocity.x == 0 && haveGun && !shoot) {
 			animator.SetBool ("HaveGun", true);
 		}
+		if (isGrounded && !jump && !crouch && myRigibody.velocity.x == 0 && haveGun && !shoot) {
+			animator.SetBool ("IdleShoot", false);
+		}
 	  }
 
 	protected void HandleInput()
@@ -142,11 +145,10 @@ public class PlayerController : MonoBehaviour {
 
 				if (isGrounded && !jump && !crouch && myRigibody.velocity.x == 0 && shoot) {
 					animator.SetBool ("IdleShoot", true);
-					shoot = false;
 				}
-				shoot = false;
 			time = 0.2f;
 			}
+			shoot = false;
 		}
 	}
 }
