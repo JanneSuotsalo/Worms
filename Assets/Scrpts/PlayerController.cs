@@ -21,10 +21,7 @@ public class PlayerController : MonoBehaviour {
 	[SerializeField]
 	protected LayerMask whatIsGround;
 
-	protected bool isGrounded, crouch, jump,facingRight;
-
-	protected bool shoot;
-	protected bool haveGun;
+	protected bool isGrounded, crouch, jump,facingRight, shoot, haveGun;
 
 	[SerializeField]
 	protected float jumpForce;
@@ -35,6 +32,10 @@ public class PlayerController : MonoBehaviour {
 	protected bool gameOn = true;
 	protected float time=0f;
 
+	/// <summary>
+	/// Handles the movement.
+	/// </summary>
+	/// <param name="horizontal">Horizontal.</param>
 	protected void HandleMovement(float horizontal)
 	{
 		//Running
@@ -54,7 +55,7 @@ public class PlayerController : MonoBehaviour {
 			animator.SetFloat ("SpeedShoot", Mathf.Abs (horizontal)); 
 		}
 
-	//Crouching
+		//Crouching
 		if (isGrounded && crouch && !shoot && !haveGun) {
 			isGrounded = true;
 			crouch = true;
@@ -122,6 +123,9 @@ public class PlayerController : MonoBehaviour {
 		}
 	  }
 
+	/// <summary>
+	/// Handles the input.
+	/// </summary>
 	protected void HandleInput()
 	{
 		crouch = false;
@@ -148,6 +152,9 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
+	/// <summary>
+	/// Shoot this instance.
+	/// </summary>
 	protected void Shoot()
 		{
 		if(haveGun && shoot) {
