@@ -43,10 +43,14 @@ public class PlayerController : MonoBehaviour {
 
 		if (isGrounded && haveGun && !shoot){
 			myRigibody.velocity = new Vector2 (horizontal * movementSpeed, myRigibody.velocity.y);
+			animator.SetBool ("RunShoot", false);
 			animator.SetFloat ("RunGun", Mathf.Abs (horizontal)); 
 		}
 		if (isGrounded && haveGun && shoot) {
 			myRigibody.velocity = new Vector2 (horizontal * movementSpeed, myRigibody.velocity.y);
+			animator.SetBool ("JumpShoot", false);
+			animator.SetBool ("CrouchShoot", false);
+			animator.SetBool ("RunShoot", true);
 			animator.SetFloat ("SpeedShoot", Mathf.Abs (horizontal)); 
 		}
 
@@ -122,22 +126,25 @@ public class PlayerController : MonoBehaviour {
 	{
 		crouch = false;
 		shoot = false;
-	
+
+		//Jumping
 		if (Input.GetKeyDown (KeyCode.W)) {
 			jump = true;
 		}
 
+		//Crouching
 		if (Input.GetKey (KeyCode.S)) {
 			crouch = true;
 			movementSpeed = 1;
 		}		
-		if(Input.GetKey (KeyCode.K)) {
-			shoot = true;
-		}
-
 		if (!crouch) {
 			animator.SetBool ("Crouch", false);
 			movementSpeed = 8;
+		}
+
+		//Shooting
+		if(Input.GetKey (KeyCode.K)) {
+			shoot = true;
 		}
 	}
 
@@ -145,6 +152,7 @@ public class PlayerController : MonoBehaviour {
 		{
 		if(haveGun && shoot) {
 			if (time <= 0) {
+				
 				//Facing direction
 				if (facingRight) {
 					Instantiate (RightBullet, shootingPos.position, Quaternion.identity);
@@ -152,6 +160,7 @@ public class PlayerController : MonoBehaviour {
 				if (!facingRight) {
 					Instantiate (LeftBullet, shootingPos.position, Quaternion.identity);
 				}
+
 			time = 0.2f;
 			}
 			shoot = false;
