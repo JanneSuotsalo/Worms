@@ -41,10 +41,14 @@ public class PlayerController : MonoBehaviour {
 		myRigibody.velocity = new Vector2 (horizontal * movementSpeed, myRigibody.velocity.y);
 		animator.SetFloat ("Speed", Mathf.Abs (horizontal));
 
-		if (isGrounded && haveGun){
+		if (isGrounded && haveGun && !shoot){
 			myRigibody.velocity = new Vector2 (horizontal * movementSpeed, myRigibody.velocity.y);
-		animator.SetFloat ("RunGun", Mathf.Abs (horizontal)); 
-	}
+			animator.SetFloat ("RunGun", Mathf.Abs (horizontal)); 
+		}
+		if (isGrounded && haveGun && shoot) {
+			myRigibody.velocity = new Vector2 (horizontal * movementSpeed, myRigibody.velocity.y);
+			animator.SetFloat ("SpeedShoot", Mathf.Abs (horizontal)); 
+		}
 
 	//Crouching
 		if (isGrounded && crouch && !shoot && !haveGun) {
@@ -58,7 +62,9 @@ public class PlayerController : MonoBehaviour {
 			animator.SetBool ("CrouchShoot", false);
 			animator.SetBool ("Crouch", true);
 		}
-		if (crouch && shoot) {
+		if (isGrounded && crouch && shoot && haveGun) {
+			isGrounded = true;
+			crouch = true;
 			animator.SetBool ("CrouchShoot", true);
 			Shoot ();
 		}
@@ -80,10 +86,17 @@ public class PlayerController : MonoBehaviour {
 		if (isGrounded && jump && shoot && haveGun) {
 			isGrounded = false;
 			jump = true;
+			Shoot ();
 			myRigibody.AddForce (new Vector2 (0, jumpForce));
 			animator.SetBool ("IdleShoot", false);
 			animator.SetBool ("JumpShoot", true);
+		}
+
+		//On the air
+		if (!isGrounded && haveGun && shoot) {
+			isGrounded = false;
 			Shoot ();
+			animator.SetBool ("JumpShoot", true);
 		}
 
 		//Idle
@@ -94,10 +107,12 @@ public class PlayerController : MonoBehaviour {
 			animator.SetBool ("HaveGun", true);
 		}
 		if (isGrounded && !jump && !crouch && myRigibody.velocity.x == 0 && haveGun && !shoot) {
+			animator.SetBool ("JumpShoot", false);
 			animator.SetBool ("IdleShoot", false);
 		}
-		if (isGrounded && !jump && !crouch && myRigibody.velocity.x == 0 && shoot) {
+		if (isGrounded && !jump && !crouch && myRigibody.velocity.x == 0 && haveGun && shoot) {
 			Shoot ();
+			animator.SetBool ("JumpShoot", false);
 			animator.SetBool ("CrouchShoot", false);
 			animator.SetBool ("IdleShoot", true);
 		}
