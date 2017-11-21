@@ -17,6 +17,7 @@ public class Player : PlayerController {
 	void Start ()
 	{
 		scene = SceneManager.GetActiveScene ();
+		curHealth = maxHealth;
 		UpdateHealthbar ();
 		animator = GetComponent<Animator> ();
 		myRigibody = GetComponent<Rigidbody2D> ();
@@ -26,8 +27,6 @@ public class Player : PlayerController {
 		shoot = false;
 	
 		shootingPos = transform.Find ("shootingPos");
-
-		curHealth = maxHealth;
 	}
 
 	// Update is called once per frame
@@ -108,9 +107,9 @@ public class Player : PlayerController {
 		float ratio = curHealth / maxHealth;
 		curHealthbar.rectTransform.localScale = new Vector3 (ratio, 1, 1);
 	}
-	private void TakeDamage(int damage) 
+	public void Damage(int dmg) 
 	{
-		curHealth -= damage;
+		curHealth -= dmg;
 		UpdateHealthbar ();
 	}
 }
