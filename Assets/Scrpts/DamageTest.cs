@@ -13,9 +13,9 @@ public class DamageTest : MonoBehaviour {
 
 	void OnCollisionEnter (Collision col) {
 
-		if (col. ("Player")) {
+		//if (col. ("Player")) {
 			
-			player.Damage(10);
-		}
+		//	player.Damage(10);
+		//}
 	}
 }

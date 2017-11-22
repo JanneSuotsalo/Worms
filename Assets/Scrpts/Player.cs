@@ -10,7 +10,7 @@ public class Player : PlayerController {
 	//stats
 	public int curHealth;
 	public int maxHealth = 100;
-	public Image curHealthbar;
+	//public Image curHealthbar;
 	private Scene scene;
 
 	// Use this for initialization
@@ -105,7 +105,7 @@ public class Player : PlayerController {
 	private void UpdateHealthbar () 
 	{
 		float ratio = curHealth / maxHealth;
-		curHealthbar.rectTransform.localScale = new Vector3 (ratio, 1, 1);
+	//	curHealthbar.rectTransform.localScale = new Vector3 (ratio, 1, 1);
 	}
 	public void Damage(int dmg) 
 	{
