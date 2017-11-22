@@ -6,16 +6,16 @@ public class DamageTest : MonoBehaviour {
 
 	private Player player;
 
-	void Start () {
 
+	void Start()
+	{
 		player = GameObject.FindGameObjectWithTag ("Player").GetComponent<Player> ();
 	}
 
-	void OnCollisionEnter (Collision col) {
+	void OnTriggerEnter2D(Collider2D col) {
 
-		//if (col. ("Player")) {
-			
-		//	player.Damage(10);
-		//}
+		if (col.CompareTag ("Player")) {
+			player.TakeDamage (5);
+		}
 	}
 }

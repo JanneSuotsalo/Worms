@@ -6,19 +6,17 @@ using UnityEngine.SceneManagement;
 
 public class Player : PlayerController {
 
-
-	//stats
-	public int curHealth;
-	public int maxHealth = 100;
-	//public Image curHealthbar;
+	public float curHealth;
+	public float maxHealth = 100;
+	public Image curHealthbar;
 	private Scene scene;
+	private float ratio;
 
 	// Use this for initialization
 	void Start ()
 	{
 		scene = SceneManager.GetActiveScene ();
 		curHealth = maxHealth;
-		UpdateHealthbar ();
 		animator = GetComponent<Animator> ();
 		myRigibody = GetComponent<Rigidbody2D> ();
 		facingRight = true;
@@ -41,7 +39,9 @@ public class Player : PlayerController {
 
 		}
 
-		if (curHealth > maxHealth) {
+
+
+		if (curHealth >= maxHealth) {
 			curHealth = maxHealth;
 		}
 		if (curHealth <= 0) {
@@ -64,6 +64,7 @@ public class Player : PlayerController {
 		transform.Translate(velocity);
 
 		ResetValues ();
+		curHealthbar.fillAmount = curHealth / maxHealth;
 	}
 
 	protected void flip(float horizontal)
@@ -102,14 +103,9 @@ public class Player : PlayerController {
 		//restart
 		SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
 	}
-	private void UpdateHealthbar () 
-	{
-		float ratio = curHealth / maxHealth;
-	//	curHealthbar.rectTransform.localScale = new Vector3 (ratio, 1, 1);
-	}
-	public void Damage(int dmg) 
+
+	public void TakeDamage(int dmg) 
 	{
 		curHealth -= dmg;
-		UpdateHealthbar ();
 	}
 }
