@@ -5,6 +5,11 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
 
+	public Button LeftButton;
+	public Button RightButton;
+	public Button JumpButton;
+	public Button ShootButton;
+
 	protected Animator animator;
 
 	protected Rigidbody2D myRigibody;
@@ -132,7 +137,7 @@ public class PlayerController : MonoBehaviour {
 		shoot = false;
 
 		//Jumping
-		if (Input.GetKey (KeyCode.W)) {
+		if (Input.GetKey (KeyCode.W) {
 			jump = true;
 		}
 
@@ -150,6 +155,9 @@ public class PlayerController : MonoBehaviour {
 		if(Input.GetKey (KeyCode.K)) {
 			shoot = true;
 		}
+
+		//Running
+
 	}
 
 	/// <summary>

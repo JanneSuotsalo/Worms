@@ -8,3 +8,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/SchoolGame.unity
     guid: 1309c1b3a032bd741803528e85aa1688
+  - enabled: 1
+    path: Assets/Scene2.unity
+    guid: cc4754dfce44a8b46b590a93207085d1

@@ -38,9 +38,7 @@ public class Player : PlayerController {
 			if(time > 0) time -= Time.deltaTime;
 
 		}
-
-
-
+			
 		if (curHealth >= maxHealth) {
 			curHealth = maxHealth;
 		}
