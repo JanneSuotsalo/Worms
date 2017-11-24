@@ -197,6 +197,7 @@ GameObject:
   - component: {fileID: 82459503}
   - component: {fileID: 82459502}
   - component: {fileID: 82459506}
+  - component: {fileID: 82459507}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -282,6 +283,19 @@ MonoBehaviour:
   lookAheadFactor: 0
   lookAheadReturnSpeed: 0.5
   lookAheadMoveThreshold: 0.1
+--- !u!114 &82459507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 82459501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4427ad96fd524854d9b4e1a26c1fc1c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PauseMenu: {fileID: 1012188863}
+  MenuButton: {fileID: 152150086}
 --- !u!1 &152150084
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,7 +307,6 @@ GameObject:
   - component: {fileID: 152150088}
   - component: {fileID: 152150087}
   - component: {fileID: 152150086}
-  - component: {fileID: 152150089}
   m_Layer: 5
   m_Name: MenuButton
   m_TagString: Untagged
@@ -359,9 +372,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1012188863}
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 82459507}
+        m_MethodName: OnPause
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -405,19 +418,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 152150084}
---- !u!114 &152150089
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 152150084}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4427ad96fd524854d9b4e1a26c1fc1c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PauseMenu: {fileID: 1012188863}
-  MenuButton: {fileID: 152150086}
 --- !u!1 &224528057
 GameObject:
   m_ObjectHideFlags: 0
@@ -3896,9 +3896,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1012188863}
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 82459507}
+        m_MethodName: UnPause
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4576,7 +4576,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 82459507}
         m_MethodName: Restart
         m_Mode: 1
         m_Arguments:
@@ -4587,7 +4587,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 82459507}
         m_MethodName: Continue
         m_Mode: 1
         m_Arguments:
