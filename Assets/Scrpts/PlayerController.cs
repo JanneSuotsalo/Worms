@@ -137,7 +137,7 @@ public class PlayerController : MonoBehaviour {
 		shoot = false;
 
 		//Jumping
-		if (Input.GetKey (KeyCode.W) {
+		if (Input.GetKey (KeyCode.W)) {
 			jump = true;
 		}
 
