@@ -49,7 +49,8 @@ public class PlayerController : MonoBehaviour {
 		//Running
 		if (knockbackCount <= 0) {
 			myRigibody.velocity = new Vector2 (horizontal * movementSpeed, myRigibody.velocity.y);
-		} else {
+			animator.SetFloat ("Speed", Mathf.Abs (horizontal));
+		}else {
 			if (knockFromRight) {
 				myRigibody.velocity = new Vector2 (-knockback, knockback);
 			}
