@@ -46,6 +46,9 @@ public class PlayerController : MonoBehaviour {
 	/// <param name="horizontal">Horizontal.</param>
 	protected void HandleMovement(float horizontal)
 	{
+		if (bLeft.GetButtonPressed ()) {
+			myRigibody.velocity = new Vector2 (horizontal * movementSpeed, myRigibody.velocity.y);
+		}
 		//Running
 		if (knockbackCount <= 0) {
 			myRigibody.velocity = new Vector2 (horizontal * movementSpeed, myRigibody.velocity.y);
@@ -168,7 +171,6 @@ public class PlayerController : MonoBehaviour {
 		if(Input.GetKey (KeyCode.K) || bShoot.GetButtonPressed ()) {
 			shoot = true;
 		}
-
 	}
 
 	/// <summary>
