@@ -23,8 +23,11 @@ public class Player : PlayerController {
 		crouch = false;
 		haveGun = true;
 		shoot = false;
-	
 		shootingPos = transform.Find ("shootingPos");
+		bLeft = GameObject.Find ("LeftButton").GetComponent<ButtonController>();
+		bRight = GameObject.Find ("RightButton").GetComponent<ButtonController>();
+		bJump = GameObject.Find ("JumpButton").GetComponent<ButtonController>();
+		bShoot = GameObject.Find ("ShootButton").GetComponent<ButtonController>();
 	}
 
 	// Update is called once per frame

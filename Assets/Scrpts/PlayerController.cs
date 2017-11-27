@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
 
-	public Button LeftButton;
-	public Button RightButton;
-	public Button JumpButton;
-	public Button ShootButton;
+	public ButtonController bLeft;
+	public ButtonController bRight;
+	public ButtonController bJump;
+	public ButtonController bShoot;
 
 	protected Animator animator;
 
@@ -137,7 +137,8 @@ public class PlayerController : MonoBehaviour {
 		shoot = false;
 
 		//Jumping
-		if (Input.GetKey (KeyCode.W)) {
+
+		if (Input.GetKey (KeyCode.W) || bJump.GetButtonPressed ()) {
 			jump = true;
 		}
 
@@ -152,11 +153,9 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		//Shooting
-		if(Input.GetKey (KeyCode.K)) {
+		if(Input.GetKey (KeyCode.K) || bShoot.GetButtonPressed ()) {
 			shoot = true;
 		}
-
-		//Running
 
 	}
 
