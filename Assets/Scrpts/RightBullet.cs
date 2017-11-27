@@ -6,8 +6,6 @@ public class RightBullet : MonoBehaviour {
 
 	private Rigidbody2D rigidBodyR;
 
-	private Animator animator;
-
 	public Vector2 speed;
 
 	public LayerMask notToHit;
@@ -30,7 +28,7 @@ public class RightBullet : MonoBehaviour {
 	{
 		//all projectile colliding game objects should be tagged "Enemy" or whatever in inspector but that tag must be reflected in the below if conditional
 		if (col.gameObject.tag == "Enemy") {
-			Destroy (col.gameObject);
+			col.gameObject.GetComponent<EnemyHealth> ().TakeDamage (20);
 
 			//add an explosion or something
 			//destroy the projectile that just caused the trigger collision
