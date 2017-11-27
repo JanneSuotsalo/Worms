@@ -2588,12 +2588,12 @@ GameObject:
   - component: {fileID: 1123863447}
   - component: {fileID: 1123863446}
   - component: {fileID: 1123863445}
-  - component: {fileID: 1123863449}
   - component: {fileID: 1123863451}
+  - component: {fileID: 1123863449}
   - component: {fileID: 1123863450}
   - component: {fileID: 1123863448}
   - component: {fileID: 1123863452}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Bat
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -2668,7 +2668,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1123863444}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 34.2, y: -7.3, z: 0}
+  m_LocalPosition: {x: 29.35, y: 2.11, z: 0}
   m_LocalScale: {x: 6, y: 6, z: 6}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2742,7 +2742,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: -7
-  myRenderer: {fileID: 1763845845}
+  myRenderer: {fileID: 1123863446}
 --- !u!114 &1123863452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3124,10 +3124,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57f024866519fad4798eee46db02fae0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LeftButton: {fileID: 0}
-  RightButton: {fileID: 0}
-  JumpButton: {fileID: 0}
-  ShootButton: {fileID: 0}
   movementSpeed: 12
   groundPoints:
   - {fileID: 1103854356}
@@ -3141,9 +3137,9 @@ MonoBehaviour:
   LeftBullet: {fileID: 1783561199083894, guid: 8cf06514ce66a7a4496d116bc4371246, type: 2}
   RightBullet: {fileID: 1783561199083894, guid: 4ac37fbd8dbbda940a13a5c3cdeb0490,
     type: 2}
+  knockbackCount: 0
   knockback: 10
   knockbackLength: 0.2
-  knockbackCount: 0
   knockFromRight: 0
   curHealth: 0
   maxHealth: 100
@@ -3780,7 +3776,7 @@ Camera:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_RenderingPath: -1
+  m_RenderingPath: 1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3

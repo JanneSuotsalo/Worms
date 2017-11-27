@@ -8,18 +8,18 @@ public class Bat : MonoBehaviour {
 	protected Rigidbody2D myRigibody;
 	public float speed;
 	bool hasAppeared;
-	public SpriteRenderer myRenderer;
+	public Renderer myRenderer;
 
 	void Start () {
 
 		animator = GetComponent<Animator> ();
 		myRigibody = GetComponent<Rigidbody2D> ();
-
 		hasAppeared = false;
 
 	}
 
-	void update() {	
+	void Update() {	
+
 		if (myRenderer.isVisible) {
 			hasAppeared = true;
 		}
