@@ -109,4 +109,7 @@ public class Player : PlayerController {
 	{
 		curHealth -= dmg;
 	}
+	public void GetGun() {
+		haveGun = true;
+	}
 }

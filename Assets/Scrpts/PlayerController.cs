@@ -37,6 +37,9 @@ public class PlayerController : MonoBehaviour {
 	protected bool gameOn = true;
 	protected float time=0f;
 
+	public float knockbackCount, knockback, knockbackLength;
+	public bool knockFromRight;
+
 	/// <summary>
 	/// Handles the movement.
 	/// </summary>
@@ -44,9 +47,17 @@ public class PlayerController : MonoBehaviour {
 	protected void HandleMovement(float horizontal)
 	{
 		//Running
-		myRigibody.velocity = new Vector2 (horizontal * movementSpeed, myRigibody.velocity.y);
-		animator.SetFloat ("Speed", Mathf.Abs (horizontal));
-
+		if (knockbackCount <= 0) {
+			myRigibody.velocity = new Vector2 (horizontal * movementSpeed, myRigibody.velocity.y);
+		} else {
+			if (knockFromRight) {
+				myRigibody.velocity = new Vector2 (-knockback, knockback);
+			}
+			if (!knockFromRight) {
+				myRigibody.velocity = new Vector2 (knockback, knockback);
+			}
+			knockbackCount -= Time.deltaTime;
+		}
 		if (isGrounded && haveGun && !shoot){
 			myRigibody.velocity = new Vector2 (horizontal * movementSpeed, myRigibody.velocity.y);
 			animator.SetBool ("RunShoot", false);

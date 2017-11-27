@@ -19,7 +19,7 @@ public class Bat : MonoBehaviour {
 
 	}
 
-	void update() {
+	void update() {	
 		if (myRenderer.isVisible) {
 			hasAppeared = true;
 		}
