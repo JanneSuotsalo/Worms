@@ -1837,7 +1837,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 842458046}
   m_LocalRotation: {x: -0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.65270805, y: 0.05461697, z: 0.080078125}
+  m_LocalPosition: {x: 2.301, y: 0.126, z: 0}
   m_LocalScale: {x: -0.34022602, y: 0.33333334, z: 0.33333334}
   m_Children: []
   m_Father: {fileID: 1907002537}
@@ -1854,7 +1854,7 @@ GameObject:
   m_Layer: 0
   m_Name: sightStart
   m_TagString: Untagged
-  m_Icon: {fileID: 6926474624037801865, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1865,7 +1865,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 938581912}
   m_LocalRotation: {x: -0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.193, z: 0}
   m_LocalScale: {x: -0.34022602, y: 0.33333334, z: 0.33333334}
   m_Children: []
   m_Father: {fileID: 1907002537}
@@ -4099,7 +4099,6 @@ GameObject:
   - component: {fileID: 1907002527}
   - component: {fileID: 1907002526}
   - component: {fileID: 1907002530}
-  - component: {fileID: 1907002535}
   - component: {fileID: 1907002531}
   - component: {fileID: 1907002529}
   - component: {fileID: 1907002533}
@@ -4229,6 +4228,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bbb8598883409248968a78d6ac092a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LeftBullet: {fileID: 1623953968089742, guid: b9a050e74cddb35409e5e426823ecac6, type: 2}
+  RightBullet: {fileID: 1296646355271764, guid: 0752d0de5974bc64ea6bfc85bc060c78,
+    type: 2}
+  shootingPos: {fileID: 2142426389}
+  facingRight: 0
+  gameOn: 1
+  time: 0
+  sightStart: {fileID: 938581913}
+  sightEnd: {fileID: 842458047}
+  spotted: 0
+  shoot: 0
   enemyMask:
     serializedVersion: 2
     m_Bits: 4294963199
@@ -4283,28 +4293,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.57, y: 0.6442523}
   m_EdgeRadius: 0
---- !u!114 &1907002535
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1907002525}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f39a3c1021d03be41906981236672d52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyMask:
-    serializedVersion: 2
-    m_Bits: 4294963199
-  speed: 0
-  LeftBullet: {fileID: 0}
-  RightBullet: {fileID: 0}
-  shootingPos: {fileID: 2142426389}
-  gameOn: 1
-  time: 0
-  sightStart: {fileID: 938581913}
-  sightEnd: {fileID: 842458047}
 --- !u!224 &1907002537
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4523,7 +4511,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2142426388}
   m_LocalRotation: {x: -0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.275, y: 0.127, z: 0.078125}
+  m_LocalPosition: {x: 0.275, y: 0.151, z: 0.078125}
   m_LocalScale: {x: -1.7011302, y: 1.6666667, z: 1.6666667}
   m_Children: []
   m_Father: {fileID: 1907002537}

@@ -21,9 +21,9 @@ GameObject:
   - component: {fileID: 4582811993718316}
   - component: {fileID: 212359525507013122}
   - component: {fileID: 50100624543094490}
-  - component: {fileID: 114568456049733950}
   - component: {fileID: 114543748508311192}
   - component: {fileID: 61955103867402698}
+  - component: {fileID: 114966683252658850}
   m_Layer: 8
   m_Name: BulletR (1)
   m_TagString: Untagged
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 1
---- !u!114 &114568456049733950
+--- !u!114 &114966683252658850
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -109,13 +109,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1623953968089742}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d802fa1ecf4bd5e45a48da864ca51fef, type: 3}
+  m_Script: {fileID: 11500000, guid: 87bcd8750cb2d1145857fb79365d096d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: {x: -20, y: 0}
   notToHit:
     serializedVersion: 2
-    m_Bits: 260
+    m_Bits: 0
 --- !u!212 &212359525507013122
 SpriteRenderer:
   m_ObjectHideFlags: 1

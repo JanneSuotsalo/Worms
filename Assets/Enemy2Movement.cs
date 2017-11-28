@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy2Movement : MonoBehaviour {
+public class Enemy2Movement : EnemyShooting {
 
 	Animator animator;
 	public LayerMask enemyMask;
@@ -17,15 +17,34 @@ public class Enemy2Movement : MonoBehaviour {
 		myTrans = this.transform;
 		myRigibody = this.GetComponent<Rigidbody2D> ();
 		myWidth = this.GetComponent<SpriteRenderer> ().bounds.extents.x;
-
+		shoot = false;
+		facingRight = false;
+		shootingPos = transform.Find ("shootingPos");
 	}
 		
-	// Update is called once per frame
+	void Update() {
+		
+		Raycasting ();
+
+		if (gameOn) {
+			if (time > 0)
+				time -= Time.deltaTime;
+		}
+	}
+
 	void FixedUpdate () {
+		Raycasting ();
+		if (spotted) {
+			shoot = true;
+			speed = 0;
+			Shoot ();	
+			}
+		if(!spotted) {
+		speed = 2 ;
+		}
 
 		//Line cast position to check if the enemy is grounded
 		Vector2 lineCastPos = myTrans.position - myTrans.right * myWidth;
-		Debug.DrawLine (lineCastPos,lineCastPos + Vector2.down);
 		bool isGrounded = Physics2D.Linecast(lineCastPos,lineCastPos + Vector2.down, enemyMask);
 
 		//If there is no ground, turn around
@@ -34,6 +53,12 @@ public class Enemy2Movement : MonoBehaviour {
 			Vector3 currRot = myTrans.eulerAngles;
 			currRot.y += 180;
 			myTrans.eulerAngles = currRot;
+			if (currRot.y <= 0) {
+				facingRight = true;
+			}
+			if (currRot.y > 0) {
+				facingRight = false;
+			}
 		}
 
 		//Moving forward
