@@ -5,7 +5,7 @@ using UnityEngine;
 public class HurtPlayerOnContact : MonoBehaviour {
 
 	private Player player;
-
+	public int damage;
 
 	void Start()
 	{
@@ -15,7 +15,7 @@ public class HurtPlayerOnContact : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D col) {
 
 		if (col.CompareTag ("Player")) {
-			player.TakeDamage (5);
+			player.TakeDamage (damage);
 		
 			player.knockbackCount = player.knockbackLength;
 		}
@@ -25,9 +25,5 @@ public class HurtPlayerOnContact : MonoBehaviour {
 		else{
 			player.knockFromRight = false;
 		}
-	}
-
-	void Update () {
-
 	}
 }
