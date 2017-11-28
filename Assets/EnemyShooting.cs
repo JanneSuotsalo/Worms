@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyShooting : Enemy2Movement {
+public class EnemyShooting : MonoBehaviour {
 
 	public GameObject LeftBullet,RightBullet;
 	public Transform shootingPos;
@@ -13,6 +13,7 @@ public class EnemyShooting : Enemy2Movement {
 	Transform myTrans;
 
 	public  Transform sightStart, sightEnd;
+	public bool spotted = false;
 
 	// Use this for initialization
 	void Start () {
@@ -27,39 +28,37 @@ public class EnemyShooting : Enemy2Movement {
 
 	void Update() {
 		Raycasting ();
-	
+
+		
 	}
 
 
 	void FixedUpdate ()
 	{
-		Vector3 currRot = myTrans.eulerAngles;
-		if (currRot.y == 0) {
-			facingRight = false;
-		} else if (currRot.y == 180) {
-			facingRight = true;
+		if (spotted) {
+			Shoot ();
 		}
-
 
 	}
 		
-//	public void Shoot()
-//	{
-//		
-//			if (time <= 0) {
-//
-//				//Facing direction
-//				if (facingRight) {
-//					Instantiate (RightBullet, shootingPos.position, Quaternion.identity);
-//				}
-//				if (!facingRight) {
-//					Instantiate (LeftBullet, shootingPos.position, Quaternion.identity);
-//				}
-//
-//				time = 0.2f;
-//			}
-//	}
+	public void Shoot()
+	{
+		
+			
+
+				//Facing direction
+				if (facingRight) {
+					Instantiate (RightBullet, shootingPos.position, Quaternion.identity);
+				}
+				if (!facingRight) {
+					Instantiate (LeftBullet, shootingPos.position, Quaternion.identity);
+				}
+
+				
+
+	}
 	void Raycasting(){
 		Debug.DrawLine (sightStart.position, sightEnd.position, Color.green);
+		spotted = Physics2D.Linecast (sightStart.position, sightEnd.position, 1 << LayerMask.NameToLayer("Player"));
 	}
 }
