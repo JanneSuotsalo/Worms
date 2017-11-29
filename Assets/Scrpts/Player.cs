@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class Player : PlayerController {
 
-	public float curHealth;
-	public float maxHealth = 100;
+	private float curHealth;
+	private float maxHealth = 100;
 	public Image curHealthbar;
 	private Scene scene;
 	private float ratio;
