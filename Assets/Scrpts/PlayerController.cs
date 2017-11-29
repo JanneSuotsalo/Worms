@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
 
-	public ButtonController bLeft;
-	public ButtonController bRight;
-	public ButtonController bJump;
-	public ButtonController bShoot;
+//	public ButtonController bLeft;
+//	public ButtonController bRight;
+//	public ButtonController bJump;
+//	public ButtonController bShoot;
 
 	protected Animator animator;
 
@@ -46,9 +46,9 @@ public class PlayerController : MonoBehaviour {
 	/// <param name="horizontal">Horizontal.</param>
 	protected void HandleMovement(float horizontal)
 	{
-		if (bLeft.GetButtonPressed ()) {
-			myRigibody.velocity = new Vector2 (horizontal * movementSpeed, myRigibody.velocity.y);
-		}
+//		if (bLeft.GetButtonPressed ()) {
+//			myRigibody.velocity = new Vector2 (horizontal * movementSpeed, myRigibody.velocity.y);
+
 		//Running
 		if (knockbackCount <= 0) {
 			myRigibody.velocity = new Vector2 (horizontal * movementSpeed, myRigibody.velocity.y);
@@ -153,7 +153,7 @@ public class PlayerController : MonoBehaviour {
 
 		//Jumping
 
-		if (Input.GetKey (KeyCode.W) || bJump.GetButtonPressed ()) {
+		if (Input.GetKey (KeyCode.W)) {
 			jump = true;
 		}
 
@@ -168,7 +168,7 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		//Shooting
-		if(Input.GetKey (KeyCode.K) || bShoot.GetButtonPressed ()) {
+		if(Input.GetKey (KeyCode.K)) {
 			shoot = true;
 		}
 	}

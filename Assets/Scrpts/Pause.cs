@@ -46,8 +46,4 @@ public class Pause : MonoBehaviour
 	public void Restart () {
 		SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
 	}
-
-//	public void Exit () {
-//		SceneManager.LoadScene (SceneManager.LoadScene (0));
-//	}
 }

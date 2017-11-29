@@ -6,11 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class Player : PlayerController {
 
-	private float curHealth;
-	private float maxHealth = 100;
-	public Image curHealthbar;
+//	public Player Instance;
+	public static float curHealth;
+	public static float maxHealth = 100;
+	public static Image curHealthbar;
 	private Scene scene;
-	private float ratio;
+	public static float ratio;
 
 	// Use this for initialization
 	void Start ()
@@ -24,10 +25,16 @@ public class Player : PlayerController {
 		haveGun = true;
 		shoot = false;
 		shootingPos = transform.Find ("shootingPos");
-		bLeft = GameObject.Find ("LeftButton").GetComponent<ButtonController>();
-		bRight = GameObject.Find ("RightButton").GetComponent<ButtonController>();
-		bJump = GameObject.Find ("JumpButton").GetComponent<ButtonController>();
-		bShoot = GameObject.Find ("ShootButton").GetComponent<ButtonController>();
+//		if (Instance == null) {
+//			DontDestroyOnLoad (this.gameObject);
+//			Instance = this;
+//		} else if (Instance != this) {
+//			Destroy (this.gameObject);
+//		}
+//		bLeft = GameObject.Find ("LeftButton").GetComponent<ButtonController>();
+//		bRight = GameObject.Find ("RightButton").GetComponent<ButtonController>();
+//		bJump = GameObject.Find ("JumpButton").GetComponent<ButtonController>();
+//		bShoot = GameObject.Find ("ShootButton").GetComponent<ButtonController>();
 	}
 
 	// Update is called once per frame
@@ -109,6 +116,7 @@ public class Player : PlayerController {
 	{
 		curHealth -= dmg;
 	}
+
 	public void GetGun() {
 		haveGun = true;
 	}
