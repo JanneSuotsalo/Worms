@@ -7,11 +7,11 @@ using UnityEngine.SceneManagement;
 public class Player : PlayerController {
 
 //	public Player Instance;
-	public static float curHealth;
-	public static float maxHealth = 100;
-	public static Image curHealthbar;
+	public float curHealth;
+	public float maxHealth = 100;
+	public Image curHealthbar;
 	private Scene scene;
-	public static float ratio;
+	public float ratio;
 
 	// Use this for initialization
 	void Start ()
