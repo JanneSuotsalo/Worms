@@ -7,16 +7,14 @@ public class EnemyShooting : MonoBehaviour {
 	public GameObject LeftBullet,RightBullet;
 	public Transform shootingPos;
 	public bool facingRight;
-	Rigidbody2D myRigibody;
 
 	public bool gameOn = true;
 	public float time=0f;
 
-	Transform myTrans;
-
 	public  Transform sightStart, sightEnd;
 	public bool spotted = false;
 	public bool shoot;
+	public int multiplier;
 
 	public void Shoot()
 	{
@@ -30,9 +28,9 @@ public class EnemyShooting : MonoBehaviour {
 				if (!facingRight) {
 					Instantiate (LeftBullet, shootingPos.position, Quaternion.identity);
 				}
-					time = 0.2f;
-				shoot = false;
-			} shoot = false;
+				time = 0.2f * multiplier;
+			}
+			shoot = false;
 		}
 	}
 	public void Raycasting(){

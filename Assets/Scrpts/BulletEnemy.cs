@@ -10,6 +10,8 @@ public class BulletEnemy : MonoBehaviour {
 
 	public LayerMask notToHit;
 
+	public int damage;
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -28,7 +30,7 @@ public class BulletEnemy : MonoBehaviour {
 	{
 		//all projectile colliding game objects should be tagged "Enemy" or whatever in inspector but that tag must be reflected in the below if conditional
 		if (col.gameObject.tag == "Player") {
-			col.gameObject.GetComponent<Player> ().TakeDamage (5);
+			col.gameObject.GetComponent<Player> ().TakeDamage (damage);
 
 			//add an explosion or something
 			//destroy the projectile that just caused the trigger collision

@@ -7,6 +7,7 @@ public class Enemy2Movement : EnemyShooting {
 	Animator animator;
 	public LayerMask enemyMask;
 	public float speed;
+	public float enemyHeight = 1f;
 	Rigidbody2D myRigibody;
 	Transform myTrans;
 	float myWidth;
@@ -33,32 +34,37 @@ public class Enemy2Movement : EnemyShooting {
 	}
 
 	void FixedUpdate () {
+
 		Raycasting ();
+
 		if (spotted) {
 			shoot = true;
 			speed = 0;
 			Shoot ();	
-			}
+			}	
 		if(!spotted) {
-		speed = 2 ;
+			speed = 2 ;
+			shoot = false;
+
 		}
 
 		//Line cast position to check if the enemy is grounded
-		Vector2 lineCastPos = myTrans.position - myTrans.right * myWidth;
-		bool isGrounded = Physics2D.Linecast(lineCastPos,lineCastPos + Vector2.down, enemyMask);
+		Vector2 lineCastPos = myTrans.position;
+		bool isGrounded = Physics2D.Linecast(lineCastPos, lineCastPos - new Vector2(0, enemyHeight), enemyMask);
+		Debug.DrawRay (lineCastPos, new Vector2(0, -enemyHeight));
 
+		Vector3 currRot = myTrans.eulerAngles;
 		//If there is no ground, turn around
 		if (!isGrounded) 
 		{
-			Vector3 currRot = myTrans.eulerAngles;
 			currRot.y += 180;
 			myTrans.eulerAngles = currRot;
-			if (currRot.y <= 0) {
-				facingRight = true;
-			}
-			if (currRot.y > 0) {
-				facingRight = false;
-			}
+		}
+
+		if (currRot.y > 150 ) {
+			facingRight = true;
+		} else {
+			facingRight = false;
 		}
 
 		//Moving forward
