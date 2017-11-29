@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114260648222586090}
   - component: {fileID: 114238806656553218}
   - component: {fileID: 61172280254704684}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: BulletR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +115,8 @@ MonoBehaviour:
   speed: {x: -20, y: 0}
   notToHit:
     serializedVersion: 2
-    m_Bits: 260
+    m_Bits: 1284
+  damage: 20
 --- !u!212 &212040791232614086
 SpriteRenderer:
   m_ObjectHideFlags: 1
