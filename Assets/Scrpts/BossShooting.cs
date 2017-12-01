@@ -38,13 +38,13 @@ public class BossShooting : MonoBehaviour {
 		}
 	}
 	public void Raycasting(){
-		Debug.DrawLine (sightStart.position, sightEnd.position, Color.green);
+		//Debug.DrawLine (sightStart.position, sightEnd.position, Color.green);
 		spotted = Physics2D.Linecast (sightStart.position, sightEnd.position, 1 << LayerMask.NameToLayer("Player"));
 
-		Debug.DrawLine (sightStart2.position, sightEnd2.position, Color.green);
+		//Debug.DrawLine (sightStart2.position, sightEnd2.position, Color.green);
 		spottedBehind = Physics2D.Linecast (sightStart2.position, sightEnd2.position, 1 << LayerMask.NameToLayer("Player"));
 
-		Debug.DrawLine (sightStart3.position, sightEnd3.position, Color.green);
+		//Debug.DrawLine (sightStart3.position, sightEnd3.position, Color.green);
 		spottedUp = Physics2D.Linecast (sightStart3.position, sightEnd3.position, 1 << LayerMask.NameToLayer("Player"));
 	}
 }

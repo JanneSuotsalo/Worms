@@ -9,9 +9,11 @@ public class Bat : MonoBehaviour {
 	public float speed;
 	bool hasAppeared;
 	public Renderer myRenderer;
+	Transform myTrans;
 
 	void Start () {
 
+		myTrans = this.transform;
 		animator = GetComponent<Animator> ();
 		myRigibody = GetComponent<Rigidbody2D> ();
 		hasAppeared = false;
@@ -32,10 +34,17 @@ public class Bat : MonoBehaviour {
 
 	void FixedUpdate () {
 		if (hasAppeared) {
-			Vector2 vel = myRigibody.velocity;
-			vel.x = speed;
-			myRigibody.velocity = vel;
+			Vector2 myVelocity = myRigibody.velocity;
+			myVelocity.x = myTrans.right.x * speed;
+			myRigibody.velocity = myVelocity;
 			animator.SetFloat ("Speed", speed);
+		}
+	}
+	void OnTriggerEnter2D(Collider2D col) {
+		if (col.CompareTag ("Block")) {
+			Vector3 currRot = myTrans.eulerAngles;
+			currRot.y += 180;
+			myTrans.eulerAngles = currRot;
 		}
 	}
 }
