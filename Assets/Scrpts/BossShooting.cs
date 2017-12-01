@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyShooting : MonoBehaviour {
+public class BossShooting : MonoBehaviour {
 
 	public GameObject LeftBullet,RightBullet;
 	public Transform shootingPos;
@@ -12,7 +12,11 @@ public class EnemyShooting : MonoBehaviour {
 	public float time=0f;
 
 	public  Transform sightStart, sightEnd;
+	public  Transform sightStart2, sightEnd2;
+	public  Transform sightStart3, sightEnd3;
 	public bool spotted = false;
+	public bool spottedBehind = false;
+	public bool spottedUp = false;
 	public bool shoot;
 	public int shootTime;
 
@@ -36,5 +40,11 @@ public class EnemyShooting : MonoBehaviour {
 	public void Raycasting(){
 		Debug.DrawLine (sightStart.position, sightEnd.position, Color.green);
 		spotted = Physics2D.Linecast (sightStart.position, sightEnd.position, 1 << LayerMask.NameToLayer("Player"));
+
+		Debug.DrawLine (sightStart2.position, sightEnd2.position, Color.green);
+		spottedBehind = Physics2D.Linecast (sightStart2.position, sightEnd2.position, 1 << LayerMask.NameToLayer("Player"));
+
+		Debug.DrawLine (sightStart3.position, sightEnd3.position, Color.green);
+		spottedUp = Physics2D.Linecast (sightStart3.position, sightEnd3.position, 1 << LayerMask.NameToLayer("Player"));
 	}
 }
