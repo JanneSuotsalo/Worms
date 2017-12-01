@@ -18,7 +18,7 @@ public class Pause : MonoBehaviour
 		MenuButton.onClick.AddListener (OnPause);
 	}
 
-	void update ()
+	void Update ()
 	{
 		if (Input.GetButton ("MenuButton")) {
 			OnPause ();
