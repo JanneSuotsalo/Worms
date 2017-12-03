@@ -120,4 +120,9 @@ public class Player : PlayerController {
 	public void GetGun() {
 		haveGun = true;
 	}
+
+	public void HealPlayer(int heal)
+	{
+		curHealth += heal;
+	}
 }
