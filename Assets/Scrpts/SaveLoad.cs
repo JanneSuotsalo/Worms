@@ -1,16 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SaveLoad : MonoBehaviour
 {
-
-	private Player player;
 	public float PositionX;
 	public float PositionY;
+	private Scene scene;
 
+	void Start() 
+	{
+		scene = SceneManager.GetActiveScene ();
+	}
 
-	void OnTriggerEnter2D (Collider2D col)
+	public void OnTriggerEnter2D (Collider2D col)
 	{
 		if (col.gameObject.tag == "Box") {
 			PlayerPrefs.SetFloat ("PositionX", transform.position.x); 
@@ -23,23 +27,4 @@ public class SaveLoad : MonoBehaviour
 			transform.position = new Vector2 (x, y);
 		}
 	}
-//	public void SavePosition (BoxCollider2D col)
-//	{
-//		if (col.gameObject.tag ("Homoperse")) {
-//			PlayerPrefs.SetFloat ("PositionX", transform.position.x); 
-//			PlayerPrefs.SetFloat ("PositionY", transform.position.y);
-//			PlayerPrefs.SetFloat ("PositionZ", transform.position.z);
-//		}
-//	}
-//
-//	public void LoadPosition (CircleCollider2D col2)
-//	{
-//		if (col2.CompareTag ("Player")) {
-//			float x = PlayerPrefs.GetFloat ("PlayerX");
-//			float y = PlayerPrefs.GetFloat ("PlayerY");
-//			float z = PlayerPrefs.GetFloat ("PlayerZ");
-//
-//			transform.position = new Vector3 (x, y, z);
-//		}
-//	}
 }

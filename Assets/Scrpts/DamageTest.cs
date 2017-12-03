@@ -4,18 +4,10 @@ using UnityEngine;
 
 public class DamageTest : MonoBehaviour {
 
-	private Player player;
-
-
-	void Start()
+	void OnTriggerEnter2D(Collider2D col) 
 	{
-		player = GameObject.FindGameObjectWithTag ("Player").GetComponent<Player> ();
-	}
-
-	void OnTriggerEnter2D(Collider2D col) {
-
 		if (col.CompareTag ("Player")) {
-			player.TakeDamage (5);
+			col.gameObject.GetComponent<Player> ().TakeDamage (5);
 		}
 	}
 }
