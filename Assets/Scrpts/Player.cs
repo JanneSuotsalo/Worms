@@ -19,6 +19,7 @@ public class Player : PlayerController {
 	void Start ()
 	{
 		scene = SceneManager.GetActiveScene ();
+		myTransform = this.transform;
 		curHealth = maxHealth;
 		animator = GetComponent<Animator> ();
 		myRigibody = GetComponent<Rigidbody2D> ();
@@ -35,8 +36,8 @@ public class Player : PlayerController {
 //		}
 //		bLeft = GameObject.Find ("LeftButton").GetComponent<ButtonController>();
 //		bRight = GameObject.Find ("RightButton").GetComponent<ButtonController>();
-		bJump = GameObject.Find ("JumpButton").GetComponent<ButtonController>();
-		bShoot = GameObject.Find ("ShootButton").GetComponent<ButtonController>();
+//		bJump = GameObject.Find ("JumpButton").GetComponent<ButtonController>();
+//		bShoot = GameObject.Find ("ShootButton").GetComponent<ButtonController>();
 	}
 
 	// Update is called once per frame
@@ -64,7 +65,8 @@ public class Player : PlayerController {
 		Vector2 velocity = Vector2.zero;
 		float horizontal = Input.GetAxis ("Horizontal");
 		isGrounded = IsGrounded();
-
+		MoveLeft ();
+		MoveRight ();
 		HandleInput ();
 		HandleMovement (horizontal);
 		Shoot ();

@@ -5,8 +5,9 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
 
-//	public ButtonController bLeft;
-//	public ButtonController bRight;
+	public Transform myTransform;
+	public ButtonController bLeft;
+	public ButtonController bRight;
 	public ButtonController bJump;
 	public ButtonController bShoot;
 
@@ -40,13 +41,20 @@ public class PlayerController : MonoBehaviour {
 	public float knockbackCount, knockback, knockbackLength;
 	public bool knockFromRight;
 
+	void Awake ()
+	{
+		bLeft = GameObject.Find ("LeftButton").GetComponent<ButtonController>();
+		bRight = GameObject.Find ("RightButton").GetComponent<ButtonController>();
+		bJump = GameObject.Find ("JumpButton").GetComponent<ButtonController>();
+		bShoot = GameObject.Find ("ShootButton").GetComponent<ButtonController>();
+	}
+
 	/// <summary>
 	/// Handles the movement.
 	/// </summary>
 	/// <param name="horizontal">Horizontal.</param>
 	protected void HandleMovement(float horizontal)
 	{
-
 		//Running
 		if (knockbackCount <= 0) {
 			myRigibody.velocity = new Vector2 (horizontal * movementSpeed, myRigibody.velocity.y);
@@ -170,12 +178,7 @@ public class PlayerController : MonoBehaviour {
 			shoot = true;
 		}
 		//Running with buttons
-//		if (Input.GetKey (KeyCode.A) || bLeft.GetButtonPressed ()) {
-//			myRigibody.velocity = new Vector2 (-1 * movementSpeed, myRigibody.velocity.y);
-//		}
-//		if (Input.GetKey (KeyCode.D) || bRight.GetButtonPressed ()) {
-//			myRigibody.velocity = new Vector2 (1* movementSpeed, myRigibody.velocity.y);
-//		}
+
 	}
 
 	/// <summary>
@@ -197,6 +200,22 @@ public class PlayerController : MonoBehaviour {
 			time = 0.2f;
 			}
 			shoot = false;
+		}
+	}
+	public void MoveLeft ()
+	{
+//		if (bLeft.GetButtonPressed ()) {
+			movementSpeed = 8;
+			Vector2 myVelocity = myRigibody.velocity;
+			myVelocity.x = myTransform.right.x * movementSpeed;
+			myRigibody.velocity = myVelocity;
+
+	}
+	public void MoveRight ()
+	{
+		if (bRight.GetButtonPressed ()) {
+			movementSpeed = 8;
+			myRigibody.velocity = new Vector2 (1 * movementSpeed, myRigibody.velocity.y);
 		}
 	}
 }
