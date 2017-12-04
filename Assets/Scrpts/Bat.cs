@@ -11,6 +11,7 @@ public class Bat : MonoBehaviour {
 	public Renderer myRenderer;
 	Transform myTrans;
 	public LayerMask notToHit;
+	public bool canDissapear;
 
 	void Start () {
 
@@ -26,7 +27,7 @@ public class Bat : MonoBehaviour {
 		if (myRenderer.isVisible) {
 			hasAppeared = true;
 		}
-		if (hasAppeared) {
+		if (hasAppeared && canDissapear) {
 			if (!myRenderer.isVisible) {
 				Destroy (gameObject);
 			}

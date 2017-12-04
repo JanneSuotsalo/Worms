@@ -40,4 +40,8 @@ public class RightBullet : MonoBehaviour {
 			Destroy (gameObject);
 		}
 	}
+	public void AddDamage(int damagePlus) 
+	{
+		damage += damagePlus;
+	}
 }
