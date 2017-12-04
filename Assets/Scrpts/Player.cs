@@ -12,6 +12,8 @@ public class Player : PlayerController {
 	public Image curHealthbar;
 	private Scene scene;
 	public float ratio;
+	public Vector3 respawnPoint;
+	public float respawnHealth;
 
 	// Use this for initialization
 	void Start ()
@@ -33,8 +35,8 @@ public class Player : PlayerController {
 //		}
 //		bLeft = GameObject.Find ("LeftButton").GetComponent<ButtonController>();
 //		bRight = GameObject.Find ("RightButton").GetComponent<ButtonController>();
-//		bJump = GameObject.Find ("JumpButton").GetComponent<ButtonController>();
-//		bShoot = GameObject.Find ("ShootButton").GetComponent<ButtonController>();
+		bJump = GameObject.Find ("JumpButton").GetComponent<ButtonController>();
+		bShoot = GameObject.Find ("ShootButton").GetComponent<ButtonController>();
 	}
 
 	// Update is called once per frame
@@ -108,7 +110,9 @@ public class Player : PlayerController {
 
 	void Die() {	
 		//restart
-		SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
+		curHealth = respawnHealth;
+		transform.position = respawnPoint;
+
 	}
 
 	public void TakeDamage(int dmg) 
@@ -123,5 +127,12 @@ public class Player : PlayerController {
 	public void HealPlayer(int heal)
 	{
 		curHealth += heal;
+	}
+	void OnTriggerEnter2D(Collider2D other)
+	{
+		if (other.tag == "Checkpoint") {
+			respawnPoint = other.transform.position;
+			respawnHealth = curHealth;
+		}
 	}
 }

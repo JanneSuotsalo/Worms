@@ -7,7 +7,7 @@ public class DamageTest : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D col) 
 	{
 		if (col.CompareTag ("Player")) {
-			col.gameObject.GetComponent<Player> ().TakeDamage (5);
+			col.gameObject.GetComponent<Player> ().TakeDamage (40);
 		}
 	}
 }

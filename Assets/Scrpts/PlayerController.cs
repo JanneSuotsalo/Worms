@@ -7,8 +7,8 @@ public class PlayerController : MonoBehaviour {
 
 //	public ButtonController bLeft;
 //	public ButtonController bRight;
-//	public ButtonController bJump;
-//	public ButtonController bShoot;
+	public ButtonController bJump;
+	public ButtonController bShoot;
 
 	protected Animator animator;
 
@@ -46,8 +46,6 @@ public class PlayerController : MonoBehaviour {
 	/// <param name="horizontal">Horizontal.</param>
 	protected void HandleMovement(float horizontal)
 	{
-//		if (bLeft.GetButtonPressed ()) {
-//			myRigibody.velocity = new Vector2 (horizontal * movementSpeed, myRigibody.velocity.y);
 
 		//Running
 		if (knockbackCount <= 0) {
@@ -153,7 +151,7 @@ public class PlayerController : MonoBehaviour {
 
 		//Jumping
 
-		if (Input.GetKey (KeyCode.W)) {
+		if (Input.GetKey (KeyCode.W) || bJump.GetButtonPressed ()) {
 			jump = true;
 		}
 
@@ -168,9 +166,16 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		//Shooting
-		if(Input.GetKey (KeyCode.K)) {
+		if(Input.GetKey (KeyCode.K) || bShoot.GetButtonPressed ()) {
 			shoot = true;
 		}
+		//Running with buttons
+//		if (Input.GetKey (KeyCode.A) || bLeft.GetButtonPressed ()) {
+//			myRigibody.velocity = new Vector2 (-1 * movementSpeed, myRigibody.velocity.y);
+//		}
+//		if (Input.GetKey (KeyCode.D) || bRight.GetButtonPressed ()) {
+//			myRigibody.velocity = new Vector2 (1* movementSpeed, myRigibody.velocity.y);
+//		}
 	}
 
 	/// <summary>
