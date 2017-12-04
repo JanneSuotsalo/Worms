@@ -116,7 +116,7 @@ MonoBehaviour:
   speed: {x: -20, y: 0}
   notToHit:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 5120
   damage: 1
 --- !u!122 &122258605854729678
 Halo:

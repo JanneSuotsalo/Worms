@@ -147,6 +147,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: -7
   myRenderer: {fileID: 212962208125646346}
+  notToHit:
+    serializedVersion: 2
+    m_Bits: 4102
 --- !u!114 &114306971325834362
 MonoBehaviour:
   m_ObjectHideFlags: 1

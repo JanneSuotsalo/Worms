@@ -40,8 +40,6 @@ public class Player : PlayerController {
 	// Update is called once per frame
 	void Update()
 	{
-
-
 		animator.SetBool ("Air", !isGrounded);
 
 		if (gameOn) {
@@ -60,6 +58,7 @@ public class Player : PlayerController {
 
 	void FixedUpdate ()
 	{
+		animator.SetFloat ("Health", curHealth);
 		Vector2 velocity = Vector2.zero;
 		float horizontal = Input.GetAxis ("Horizontal");
 		isGrounded = IsGrounded();
@@ -107,7 +106,7 @@ public class Player : PlayerController {
 		shoot = false;
 	}
 
-	void Die() {
+	void Die() {	
 		//restart
 		SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
 	}

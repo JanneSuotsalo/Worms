@@ -10,6 +10,7 @@ public class Bat : MonoBehaviour {
 	bool hasAppeared;
 	public Renderer myRenderer;
 	Transform myTrans;
+	public LayerMask notToHit;
 
 	void Start () {
 
