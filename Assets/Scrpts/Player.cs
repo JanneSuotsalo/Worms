@@ -19,7 +19,6 @@ public class Player : PlayerController {
 	void Start ()
 	{
 		scene = SceneManager.GetActiveScene ();
-		myTransform = this.transform;
 		curHealth = maxHealth;
 		animator = GetComponent<Animator> ();
 		myRigibody = GetComponent<Rigidbody2D> ();

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerController : MonoBehaviour {
+public class PlayerController : MonoBehaviour
+{
 
-	public Transform myTransform;
 	public ButtonController bLeft;
 	public ButtonController bRight;
 	public ButtonController bJump;
@@ -27,39 +27,39 @@ public class PlayerController : MonoBehaviour {
 	[SerializeField]
 	protected LayerMask whatIsGround;
 
-	protected bool isGrounded, crouch, jump,facingRight, shoot, haveGun;
+	protected bool isGrounded, crouch, jump, facingRight, shoot, haveGun;
 
 	[SerializeField]
 	protected float jumpForce;
 
-	public GameObject LeftBullet,RightBullet;
+	public GameObject LeftBullet, RightBullet;
 	protected Transform shootingPos;
 
 	protected bool gameOn = true;
-	protected float time=0f;
+	protected float time = 0f;
 
 	public float knockbackCount, knockback, knockbackLength;
 	public bool knockFromRight;
 
 	void Awake ()
 	{
-		bLeft = GameObject.Find ("LeftButton").GetComponent<ButtonController>();
-		bRight = GameObject.Find ("RightButton").GetComponent<ButtonController>();
-		bJump = GameObject.Find ("JumpButton").GetComponent<ButtonController>();
-		bShoot = GameObject.Find ("ShootButton").GetComponent<ButtonController>();
+		bLeft = GameObject.Find ("LeftButton").GetComponent<ButtonController> ();
+		bRight = GameObject.Find ("RightButton").GetComponent<ButtonController> ();
+		bJump = GameObject.Find ("JumpButton").GetComponent<ButtonController> ();
+		bShoot = GameObject.Find ("ShootButton").GetComponent<ButtonController> ();
 	}
 
 	/// <summary>
 	/// Handles the movement.
 	/// </summary>
 	/// <param name="horizontal">Horizontal.</param>
-	protected void HandleMovement(float horizontal)
+	protected void HandleMovement (float horizontal)
 	{
 		//Running
 		if (knockbackCount <= 0) {
 			myRigibody.velocity = new Vector2 (horizontal * movementSpeed, myRigibody.velocity.y);
 			animator.SetFloat ("Speed", Mathf.Abs (horizontal));
-		}else {
+		} else {
 			if (knockFromRight) {
 				myRigibody.velocity = new Vector2 (-knockback, knockback);
 			}
@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour {
 			}
 			knockbackCount -= Time.deltaTime;
 		}
-		if (isGrounded && haveGun && !shoot){
+		if (isGrounded && haveGun && !shoot) {
 			myRigibody.velocity = new Vector2 (horizontal * movementSpeed, myRigibody.velocity.y);
 			animator.SetBool ("RunShoot", false);
 			animator.SetFloat ("RunGun", Mathf.Abs (horizontal)); 
@@ -104,7 +104,7 @@ public class PlayerController : MonoBehaviour {
 		if (isGrounded && jump && !shoot && !haveGun) {
 			isGrounded = false;
 			jump = true;
-			myRigibody.AddForce(new Vector2(0, jumpForce));
+			myRigibody.AddForce (new Vector2 (0, jumpForce));
 			animator.SetBool ("Jump", true);
 		}
 		if (isGrounded && jump && !shoot && haveGun) {
@@ -147,12 +147,12 @@ public class PlayerController : MonoBehaviour {
 			animator.SetBool ("CrouchShoot", false);
 			animator.SetBool ("IdleShoot", true);
 		}
-	  }
+	}
 
 	/// <summary>
 	/// Handles the input.
 	/// </summary>
-	protected void HandleInput()
+	protected void HandleInput ()
 	{
 		crouch = false;
 		shoot = false;
@@ -174,7 +174,7 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		//Shooting
-		if(Input.GetKey (KeyCode.K) || bShoot.GetButtonPressed ()) {
+		if (Input.GetKey (KeyCode.K) || bShoot.GetButtonPressed ()) {
 			shoot = true;
 		}
 		//Running with buttons
@@ -184,9 +184,9 @@ public class PlayerController : MonoBehaviour {
 	/// <summary>
 	/// Shoot this instance.
 	/// </summary>
-	protected void Shoot()
-		{
-		if(haveGun && shoot) {
+	protected void Shoot ()
+	{
+		if (haveGun && shoot) {
 			if (time <= 0) {
 				
 				//Facing direction
@@ -197,24 +197,24 @@ public class PlayerController : MonoBehaviour {
 					Instantiate (LeftBullet, shootingPos.position, Quaternion.identity);
 				}
 
-			time = 0.2f;
+				time = 0.2f;
 			}
 			shoot = false;
 		}
 	}
+
 	public void MoveLeft ()
 	{
-//		if (bLeft.GetButtonPressed ()) {
-			movementSpeed = 8;
-			Vector2 myVelocity = myRigibody.velocity;
-			myVelocity.x = myTransform.right.x * movementSpeed;
-			myRigibody.velocity = myVelocity;
-
+		movementSpeed = 8;
+		if (bLeft.GetButtonPressed ()) {
+			myRigibody.velocity = new Vector2 (-1 * movementSpeed, myRigibody.velocity.y);
+		}
 	}
+
 	public void MoveRight ()
 	{
+		movementSpeed = 8;
 		if (bRight.GetButtonPressed ()) {
-			movementSpeed = 8;
 			myRigibody.velocity = new Vector2 (1 * movementSpeed, myRigibody.velocity.y);
 		}
 	}
