@@ -321,7 +321,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 152150084}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 371.84, y: 201.43, z: 0}
+  m_LocalPosition: {x: 364.84, y: 197.43, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 733856550}
@@ -731,7 +731,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 254155671}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -142.5, y: 202, z: 0}
+  m_LocalPosition: {x: -135.5, y: 198, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 366823086}
@@ -2106,7 +2106,7 @@ GameObject:
   - component: {fileID: 756618648}
   - component: {fileID: 756618647}
   m_Layer: 8
-  m_Name: Checkpoint1 (1)
+  m_Name: StartCheckpoint
   m_TagString: Checkpoint
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -2136,7 +2136,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.29049075}
+  m_Offset: {x: -0.024048313, y: 0.29049075}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2147,7 +2147,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.5772941}
+  m_Size: {x: 0.95190334, y: 1.5772941}
   m_EdgeRadius: 0
 --- !u!4 &756618649
 Transform:
@@ -2156,7 +2156,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 756618646}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 37.41, y: -3.01, z: 0}
+  m_LocalPosition: {x: 37.84, y: -2.48, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2711,7 +2711,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1057960787}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -192.5, y: -152, z: 0}
+  m_LocalPosition: {x: -185.5, y: -148, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 941805119}
@@ -2891,7 +2891,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1062975706}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 412.5, y: 232, z: 0}
+  m_LocalPosition: {x: 405.5, y: 228, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 254155672}
@@ -4894,7 +4894,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1368984097}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -352.5, y: -152, z: 0}
+  m_LocalPosition: {x: -345.5, y: -148, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 489594217}
@@ -5155,7 +5155,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1464035091}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 352.5, y: -152, z: 0}
+  m_LocalPosition: {x: 345.5, y: -148, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 667990625}
@@ -6077,7 +6077,7 @@ GameObject:
   - component: {fileID: 2020397295}
   - component: {fileID: 2020397294}
   m_Layer: 0
-  m_Name: Crate (2)
+  m_Name: Crate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6250,7 +6250,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2070907049}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 192.5, y: -152, z: 0}
+  m_LocalPosition: {x: 185.5, y: -148, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1155890553}

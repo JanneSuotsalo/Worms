@@ -176,6 +176,7 @@ public class PlayerController : MonoBehaviour
 		//Shooting
 		if (Input.GetKey (KeyCode.K) || bShoot.GetButtonPressed ()) {
 			shoot = true;
+//			SoundManagerScript.PlaySound ("Shoot1");
 		}
 		//Running with buttons
 
