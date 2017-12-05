@@ -13,7 +13,7 @@ public class DamageTest : MonoBehaviour {
 		if (timer > 0) timer -= Time.deltaTime;
 	}
 
-	void OnTriggerEnter2D(Collider2D col) {
+	void OnTriggerStay2D(Collider2D col) {
 		if (col.CompareTag ("Player") && timer <= 0) {
 			col.gameObject.GetComponent<Player> ().TakeDamage (damage);
 			timer = wait_time;
