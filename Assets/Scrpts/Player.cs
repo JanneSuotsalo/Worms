@@ -112,7 +112,7 @@ public class Player : PlayerController {
 		shoot = false;
 	}
 
-	public void Die() {	
+	void Die() {	
 		//restart
 		curHealth = respawnHealth;
 		transform.position = respawnPoint;
