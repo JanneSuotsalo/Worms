@@ -203,20 +203,4 @@ public class PlayerController : MonoBehaviour
 			shoot = false;
 		}
 	}
-
-	public void MoveLeft ()
-	{
-		movementSpeed = 8;
-		if (bLeft.GetButtonPressed ()) {
-			myRigibody.velocity = new Vector2 (-1 * movementSpeed, myRigibody.velocity.y);
-		}
-	}
-
-	public void MoveRight ()
-	{
-		movementSpeed = 8;
-		if (bRight.GetButtonPressed ()) {
-			myRigibody.velocity = new Vector2 (1 * movementSpeed, myRigibody.velocity.y);
-		}
-	}
 }

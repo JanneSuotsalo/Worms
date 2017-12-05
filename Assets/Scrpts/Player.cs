@@ -33,10 +33,11 @@ public class Player : PlayerController {
 //		} else if (Instance != this) {
 //			Destroy (this.gameObject);
 //		}
-//		bLeft = GameObject.Find ("LeftButton").GetComponent<ButtonController>();
-//		bRight = GameObject.Find ("RightButton").GetComponent<ButtonController>();
-//		bJump = GameObject.Find ("JumpButton").GetComponent<ButtonController>();
-//		bShoot = GameObject.Find ("ShootButton").GetComponent<ButtonController>();
+
+		bLeft = GameObject.Find ("LeftButton").GetComponent<ButtonController>();
+		bRight = GameObject.Find ("RightButton").GetComponent<ButtonController>();
+		bJump = GameObject.Find ("JumpButton").GetComponent<ButtonController>();
+		bShoot = GameObject.Find ("ShootButton").GetComponent<ButtonController>();
 	}
 
 	// Update is called once per frame
@@ -60,12 +61,14 @@ public class Player : PlayerController {
 
 	void FixedUpdate ()
 	{
+		int axis = 0;
+		if (bLeft.buttonPressed) axis = -1;
+		if (bRight.buttonPressed) axis = 1;
+
 		animator.SetFloat ("Health", curHealth);
 		Vector2 velocity = Vector2.zero;
-		float horizontal = Input.GetAxis ("Horizontal");
+		float horizontal = (axis != 0) ? axis : Input.GetAxis ("Horizontal");
 		isGrounded = IsGrounded();
-		MoveLeft ();
-		MoveRight ();
 		HandleInput ();
 		HandleMovement (horizontal);
 		Shoot ();
