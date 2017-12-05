@@ -31,7 +31,7 @@ public class RightBullet : MonoBehaviour {
 		//all projectile colliding game objects should be tagged "Enemy" or whatever in inspector but that tag must be reflected in the below if conditional
 		if (col.gameObject.tag == "Enemy") {
 			col.gameObject.GetComponent<EnemyHealth> ().TakeDamage (damage);
-//			FindObjectOfType<SoundManagerScript> ().Play ("Hit");
+			FindObjectOfType<AudioManager> ().Play ("Hit");
 
 			//add an explosion or something
 			//destroy the projectile that just caused the trigger collision
