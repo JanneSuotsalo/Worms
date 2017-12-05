@@ -10,21 +10,14 @@ public class Pause : MonoBehaviour
 	private bool paused;
 	private Scene scene;
 	public GameObject PauseMenu;
-	public Button MenuButton;
+	private ButtonController menuButton;
 
-	void Start ()
+	void Awake ()
 	{
+		menuButton = GameObject.Find ("MenuButton").GetComponent<ButtonController> ();
 		scene = SceneManager.GetActiveScene ();
-		MenuButton.onClick.AddListener (OnPause);
-	}
-
-	void Update ()
-	{
-		if (Input.GetButton ("MenuButton")) {
-			OnPause ();
-		} else {
-			UnPause ();
-		}
+		paused = false;
+//		MenuButton.onClick.AddListener (OnPause);
 	}
 
 	public void OnPause ()
@@ -38,6 +31,29 @@ public class Pause : MonoBehaviour
 		PauseMenu.SetActive (false);
 		Time.timeScale = 1;
 	}
+	void PauseButton ()
+	{
+		if (!paused) {
+			if (menuButton.buttonPressed) {
+				OnPause ();
+			}
+		}
+		if (paused) {
+			if (menuButton.buttonPressed) {
+				UnPause ();
+			}
+		}
+	}
+
+//	void FixedUpdate ()
+//	{
+//		if (menuButton.buttonPressed) {
+//			OnPause ();
+//		} else {
+//			UnPause ();
+//		}
+//	}
+
 
 	public void Continue () {
 		UnPause ();
