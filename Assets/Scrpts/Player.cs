@@ -116,19 +116,19 @@ public class Player : PlayerController {
 		//restart
 		curHealth = respawnHealth;
 		transform.position = respawnPoint;
-//		FindObjectOfType<SoundManagerScript> ().Play ("Death");
+		FindObjectOfType<AudioManager> ().Play ("Death");
 
 	}
 
 	public void TakeDamage(int dmg) 
 	{
 		curHealth -= dmg;
-//		FindObjectOfType<SoundManagerScript> ().Play ("Death");
+		FindObjectOfType<AudioManager> ().Play ("Death");
 	}
 
 	public void GetGun() {
 		haveGun = true;
-//		FindObjectOfType<SoundManagerScript> ().Play ("PickUp");
+		FindObjectOfType<AudioManager> ().Play ("PickUp");
 	}
 
 	public void HealPlayer(int heal)

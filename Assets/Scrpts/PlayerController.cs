@@ -192,11 +192,11 @@ public class PlayerController : MonoBehaviour
 				//Facing direction
 				if (facingRight) {
 					Instantiate (RightBullet, shootingPos.position, Quaternion.identity);
-//					FindObjectOfType<SoundManagerScript> ().Play ("Shoot");
+					FindObjectOfType<AudioManager> ().Play ("Shoot");
 				}
 				if (!facingRight) {
 					Instantiate (LeftBullet, shootingPos.position, Quaternion.identity);
-//					FindObjectOfType<SoundManagerScript> ().Play ("Shoot");
+					FindObjectOfType<AudioManager> ().Play ("Shoot");
 				}
 
 				time = 0.2f;
