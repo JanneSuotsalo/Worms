@@ -8,6 +8,7 @@ public class DamageTest : MonoBehaviour {
 	public int wait_time = 2;
 	public float timer = 0;
 
+
 	void Update() {
 		if (timer > 0) timer -= Time.deltaTime;
 	}
