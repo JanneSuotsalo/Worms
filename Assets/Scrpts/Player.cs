@@ -123,10 +123,12 @@ public class Player : PlayerController {
 	public void TakeDamage(int dmg) 
 	{
 		curHealth -= dmg;
+		FindObjectOfType<SoundManagerScript> ().Play ("Death");
 	}
 
 	public void GetGun() {
 		haveGun = true;
+		FindObjectOfType<SoundManagerScript> ().Play ("PickUp");
 	}
 
 	public void HealPlayer(int heal)

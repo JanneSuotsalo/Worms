@@ -176,7 +176,6 @@ public class PlayerController : MonoBehaviour
 		//Shooting
 		if (Input.GetKey (KeyCode.K) || bShoot.GetButtonPressed ()) {
 			shoot = true;
-//			SoundManagerScript.PlaySound ("Shoot1");
 		}
 		//Running with buttons
 
@@ -193,9 +192,11 @@ public class PlayerController : MonoBehaviour
 				//Facing direction
 				if (facingRight) {
 					Instantiate (RightBullet, shootingPos.position, Quaternion.identity);
+					FindObjectOfType<SoundManagerScript> ().Play ("Shoot");
 				}
 				if (!facingRight) {
 					Instantiate (LeftBullet, shootingPos.position, Quaternion.identity);
+					FindObjectOfType<SoundManagerScript> ().Play ("Shoot");
 				}
 
 				time = 0.2f;
