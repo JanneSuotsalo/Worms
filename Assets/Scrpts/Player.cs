@@ -115,8 +115,8 @@ public class Player : PlayerController {
 	void Die() {	
 		//restart
 		curHealth = respawnHealth;
-		FindObjectOfType<SoundManagerScript> ().Play ("Death");
 		transform.position = respawnPoint;
+		FindObjectOfType<SoundManagerScript> ().Play ("Death");
 
 	}
 
