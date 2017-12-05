@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class DamageBuff : MonoBehaviour {
 
-	public int damage;
+	public int damagePlus;
 
 	void OnTriggerEnter2D(Collider2D col) {
-		if (col.CompareTag ("Player")) {
-			col.gameObject.GetComponent<RightBullet> ().AddDamage (10);
+		if (col.CompareTag ("Bullet")) {
+			col.gameObject.GetComponent<RightBullet> ().AddDamage (damagePlus);
 			Destroy (gameObject);
 		}
 	}
