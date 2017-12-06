@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class Player : PlayerController {
 
-//	public Player Instance;
 	public float curHealth;
 	public float maxHealth = 100;
 	public Image curHealthbar;
@@ -27,17 +26,6 @@ public class Player : PlayerController {
 		haveGun = true;
 		shoot = false;
 		shootingPos = transform.Find ("shootingPos");
-//		if (Instance == null) {
-//			DontDestroyOnLoad (this.gameObject);
-//			Instance = this;
-//		} else if (Instance != this) {
-//			Destroy (this.gameObject);
-//		}
-
-		bLeft = GameObject.Find ("LeftButton").GetComponent<ButtonController>();
-		bRight = GameObject.Find ("RightButton").GetComponent<ButtonController>();
-		bJump = GameObject.Find ("JumpButton").GetComponent<ButtonController>();
-		bShoot = GameObject.Find ("ShootButton").GetComponent<ButtonController>();
 	}
 
 	// Update is called once per frame
@@ -134,6 +122,7 @@ public class Player : PlayerController {
 	public void HealPlayer(int heal)
 	{
 		curHealth += heal;
+		FindObjectOfType<AudioManager> ().Play ("PickUp");
 	}
 	void OnTriggerEnter2D(Collider2D other)
 	{

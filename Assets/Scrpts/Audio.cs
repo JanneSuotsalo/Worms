@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
- [System.Serializable]
+[System.Serializable]
 public class Audio {
 
 	public string name;
@@ -17,6 +17,4 @@ public class Audio {
 
 	[HideInInspector]
 	public AudioSource source;
-		
-
 }

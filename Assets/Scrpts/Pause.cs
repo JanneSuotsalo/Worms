@@ -17,7 +17,6 @@ public class Pause : MonoBehaviour
 		menuButton = GameObject.Find ("MenuButton").GetComponent<ButtonController> ();
 		scene = SceneManager.GetActiveScene ();
 		paused = false;
-//		MenuButton.onClick.AddListener (OnPause);
 	}
 
 	public void OnPause ()
@@ -44,17 +43,7 @@ public class Pause : MonoBehaviour
 			}
 		}
 	}
-
-//	void FixedUpdate ()
-//	{
-//		if (menuButton.buttonPressed) {
-//			OnPause ();
-//		} else {
-//			UnPause ();
-//		}
-//	}
-
-
+		
 	public void Continue () {
 		UnPause ();
 	}
