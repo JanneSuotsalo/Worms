@@ -155,13 +155,13 @@ MonoBehaviour:
   sounds:
   - name: Onclick
     clip: {fileID: 8300000, guid: a03a627283037774aa917d3c70c1dfa0, type: 3}
-    volume: 0.2
-    pitch: 2
+    volume: 0.3
+    pitch: 1
     source: {fileID: 0}
-  - name: OffClick
+  - name: Offclick
     clip: {fileID: 8300000, guid: a03a627283037774aa917d3c70c1dfa0, type: 3}
-    volume: 0.2
-    pitch: 0.75
+    volume: 0.3
+    pitch: 0.5
     source: {fileID: 0}
 --- !u!1 &213463387
 GameObject:
