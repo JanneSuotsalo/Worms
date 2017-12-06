@@ -13,6 +13,7 @@ public class Player : PlayerController {
 	public float ratio;
 	public Vector3 respawnPoint;
 	public float respawnHealth;
+	private EnemyHealth enemy;
 
 	// Use this for initialization
 	void Start ()
@@ -32,6 +33,7 @@ public class Player : PlayerController {
 	void Update()
 	{
 		animator.SetBool ("Air", !isGrounded);
+
 
 		if (gameOn) {
 			if(time > 0) time -= Time.deltaTime;
@@ -129,6 +131,7 @@ public class Player : PlayerController {
 		if (other.tag == "Checkpoint") {
 			respawnPoint = other.transform.position;
 			respawnHealth = curHealth;
+
 		}
 	}
 }

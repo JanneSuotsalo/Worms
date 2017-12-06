@@ -6,6 +6,8 @@ public class EnemyHealth : MonoBehaviour {
 
 	public float maxHealth;
 	public float currentHealth;
+	public Vector3 respawnPosition;
+	public float respawnHealth;
 
 	void Start () {
 		currentHealth = maxHealth;
