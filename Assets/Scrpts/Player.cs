@@ -111,18 +111,18 @@ public class Player : PlayerController {
 	public void TakeDamage(int dmg) 
 	{
 		curHealth -= dmg;
-		FindObjectOfType<AudioManager> ().Play ("Death");
+		FindObjectOfType<AudioManager> ().Play ("Takehit");
 	}
 
 	public void GetGun() {
 		haveGun = true;
-		FindObjectOfType<AudioManager> ().Play ("PickUp");
+		FindObjectOfType<AudioManager> ().Play ("Pickup");
 	}
 
 	public void HealPlayer(int heal)
 	{
 		curHealth += heal;
-		FindObjectOfType<AudioManager> ().Play ("PickUp");
+		FindObjectOfType<AudioManager> ().Play ("Pickup");
 	}
 	void OnTriggerEnter2D(Collider2D other)
 	{

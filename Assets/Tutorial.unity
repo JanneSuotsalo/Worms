@@ -2380,28 +2380,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - name: Shoot
-    clip: {fileID: 8300000, guid: da9fc61770fa875439b9849007da0ec7, type: 3}
-    volume: 0.1
-    pitch: 0.4
+    clip: {fileID: 8300000, guid: 7f6ba18979d83e34ebbeb8f11a96ef3b, type: 3}
+    volume: 0.4
+    pitch: 1.5
     source: {fileID: 0}
   - name: Hit
     clip: {fileID: 8300000, guid: 54c657e987979c84c8b7343144da15b8, type: 3}
-    volume: 0.5
+    volume: 0.25
     pitch: 1
     source: {fileID: 0}
   - name: Death
     clip: {fileID: 8300000, guid: 5e8e35087db266345b4deab16d23a4dc, type: 3}
-    volume: 0.5
-    pitch: 1
+    volume: 0.4
+    pitch: 0.7
     source: {fileID: 0}
   - name: Flame
-    clip: {fileID: 8300000, guid: 6412f5bd66567084c96538ca7b4ba0e8, type: 3}
-    volume: 0.5
-    pitch: 0.8
+    clip: {fileID: 8300000, guid: d7d4bad4b34ddbc4f996731929daf145, type: 3}
+    volume: 1
+    pitch: 0.015
     source: {fileID: 0}
   - name: Pauseclick
-    clip: {fileID: 8300000, guid: 8b9f1dce916fec04280e532b22f6277a, type: 3}
-    volume: 0.5
+    clip: {fileID: 8300000, guid: a03a627283037774aa917d3c70c1dfa0, type: 3}
+    volume: 0.25
     pitch: 1
     source: {fileID: 0}
   - name: Pickup
@@ -2409,10 +2409,15 @@ MonoBehaviour:
     volume: 0.5
     pitch: 1
     source: {fileID: 0}
-  - name: Pickup
-    clip: {fileID: 8300000, guid: 170766b0ae3e6644c8e26130d462089f, type: 3}
-    volume: 0.5
+  - name: Takehit
+    clip: {fileID: 8300000, guid: 5e8e35087db266345b4deab16d23a4dc, type: 3}
+    volume: 0.3
     pitch: 1
+    source: {fileID: 0}
+  - name: Backclick
+    clip: {fileID: 8300000, guid: a03a627283037774aa917d3c70c1dfa0, type: 3}
+    volume: 0.25
+    pitch: 0.5
     source: {fileID: 0}
 --- !u!4 &997217492
 Transform:

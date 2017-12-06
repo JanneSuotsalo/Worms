@@ -28,9 +28,11 @@ public class BossShooting : MonoBehaviour {
 				//Facing direction
 				if (facingRight) {
 					Instantiate (RightBullet, shootingPos.position, Quaternion.identity);
+					FindObjectOfType<AudioManager> ().Play ("Flame");
 				}
 				if (!facingRight) {
 					Instantiate (LeftBullet, shootingPos.position, Quaternion.identity);
+					FindObjectOfType<AudioManager> ().Play ("Flame");
 				}
 				time = 0.2f * shootTime;
 			}

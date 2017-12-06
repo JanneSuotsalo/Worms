@@ -12,7 +12,7 @@ public class Audio {
 
 	[Range(0f, 1f)]
 	public float volume;
-	[Range(.1f, 3f)]
+	[Range(.01f, 3f)]
 	public float pitch;
 
 	[HideInInspector]
