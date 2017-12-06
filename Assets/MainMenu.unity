@@ -153,10 +153,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: Menuclick
-    clip: {fileID: 8300000, guid: 8b9f1dce916fec04280e532b22f6277a, type: 3}
-    volume: 0.19
+  - name: Onclick
+    clip: {fileID: 8300000, guid: a03a627283037774aa917d3c70c1dfa0, type: 3}
+    volume: 0.2
     pitch: 2
+    source: {fileID: 0}
+  - name: OffClick
+    clip: {fileID: 8300000, guid: a03a627283037774aa917d3c70c1dfa0, type: 3}
+    volume: 0.2
+    pitch: 0.75
     source: {fileID: 0}
 --- !u!1 &213463387
 GameObject:
@@ -253,7 +258,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Menuclick
+          m_StringArgument: Offclick
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -386,7 +391,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Menuclick
+          m_StringArgument: Onclick
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
