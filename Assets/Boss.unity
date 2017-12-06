@@ -1239,6 +1239,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1552320626}
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Pauseclick
+          m_BoolArgument: 1
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &469186114
@@ -2313,6 +2324,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1552320626}
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Backclick
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &833140116
@@ -3064,6 +3086,17 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: MainMenu
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1552320626}
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Backclick
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -3851,7 +3884,7 @@ MonoBehaviour:
   knockFromRight: 0
   curHealth: 0
   maxHealth: 100
-  curHealthbar: {fileID: 0}
+  curHealthbar: {fileID: 957581233}
   ratio: 0
   respawnPoint: {x: 0, y: 0, z: 0}
   respawnHealth: 0
@@ -4313,19 +4346,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - name: Shoot
-    clip: {fileID: 8300000, guid: da9fc61770fa875439b9849007da0ec7, type: 3}
-    volume: 0.5
-    pitch: 1
+    clip: {fileID: 8300000, guid: 7f6ba18979d83e34ebbeb8f11a96ef3b, type: 3}
+    volume: 0.4
+    pitch: 1.5
     source: {fileID: 0}
   - name: Hit
     clip: {fileID: 8300000, guid: 54c657e987979c84c8b7343144da15b8, type: 3}
-    volume: 0.5
+    volume: 0.25
     pitch: 1
     source: {fileID: 0}
   - name: Death
     clip: {fileID: 8300000, guid: 5e8e35087db266345b4deab16d23a4dc, type: 3}
-    volume: 0.5
-    pitch: 1
+    volume: 0.4
+    pitch: 0.7
     source: {fileID: 0}
   - name: Flame
     clip: {fileID: 8300000, guid: 6412f5bd66567084c96538ca7b4ba0e8, type: 3}
@@ -4334,13 +4367,23 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Pauseclick
     clip: {fileID: 8300000, guid: 8b9f1dce916fec04280e532b22f6277a, type: 3}
-    volume: 0.5
-    pitch: 1
+    volume: 0.25
+    pitch: 2
     source: {fileID: 0}
   - name: Pickup
     clip: {fileID: 8300000, guid: 170766b0ae3e6644c8e26130d462089f, type: 3}
     volume: 0.5
     pitch: 1
+    source: {fileID: 0}
+  - name: Takehit
+    clip: {fileID: 8300000, guid: 5e8e35087db266345b4deab16d23a4dc, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+  - name: Backclick
+    clip: {fileID: 8300000, guid: a03a627283037774aa917d3c70c1dfa0, type: 3}
+    volume: 0.25
+    pitch: 0.5
     source: {fileID: 0}
 --- !u!4 &1552320627
 Transform:
@@ -5435,6 +5478,17 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1552320626}
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Backclick
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,

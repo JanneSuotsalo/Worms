@@ -8,7 +8,6 @@ public class SceneChange : MonoBehaviour {
 	private Player player;
 	public string level;
 
-	// Use this for initialization
 	void Start () 
 	{
 		player = GameObject.FindGameObjectWithTag ("Player").GetComponent<Player> ();	
