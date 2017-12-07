@@ -47,5 +47,13 @@ public class RightBullet : MonoBehaviour {
 		if (col.gameObject.tag == "Walls") {
 			Destroy (gameObject);
 		}
+		if (col.gameObject.tag == "Boss") {
+			col.gameObject.GetComponent<BossHealth> ().TakeDamage (damage);
+			FindObjectOfType<AudioManager> ().Play ("Hit");
+
+
+			//destroy the projectile that just caused the trigger collision
+			Destroy (gameObject);
+		}
 	}
 }

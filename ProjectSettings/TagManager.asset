@@ -9,6 +9,7 @@ TagManager:
   - Block
   - Checkpoint
   - Bullet
+  - Boss
   layers:
   - Default
   - TransparentFX
