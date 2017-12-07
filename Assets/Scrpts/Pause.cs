@@ -11,12 +11,14 @@ public class Pause : MonoBehaviour
 	private Scene scene;
 	public GameObject PauseMenu;
 	private ButtonController menuButton;
+	private Player player;
 
 	void Awake ()
 	{
 		menuButton = GameObject.Find ("MenuButton").GetComponent<ButtonController> ();
 		scene = SceneManager.GetActiveScene ();
 		paused = false;
+		player = GameObject.FindGameObjectWithTag ("Player").GetComponent<Player> ();
 	}
 
 	public void OnPause ()
