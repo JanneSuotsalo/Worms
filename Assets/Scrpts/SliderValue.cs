@@ -9,6 +9,9 @@ public class SliderValue : MonoBehaviour {
 	public Slider slider;
 	public string prefix;
 
+	/// <summary>
+	/// Update this instance.
+	/// </summary>
 	private void Update () {
 		sliderText.text = prefix + slider.value.ToString () + " / " + slider.maxValue;
 	}

@@ -7,11 +7,18 @@ public class HurtPlayerOnContact : MonoBehaviour {
 	private Player player;
 	public int damage;
 
+	/// <summary>
+	/// Start this instance.
+	/// </summary>
 	void Start()
 	{
 		player = GameObject.FindGameObjectWithTag ("Player").GetComponent<Player> ();
 	}
 
+	/// <summary>
+	/// Raises the trigger enter2 d event.
+	/// </summary>
+	/// <param name="col">Col.</param>
 	void OnTriggerEnter2D(Collider2D col) {
 
 		if (col.CompareTag ("Player")) {

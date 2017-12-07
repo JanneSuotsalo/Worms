@@ -12,7 +12,9 @@ public class RightBullet : MonoBehaviour {
 
 	public int damage;
 
-	// Use this for initialization
+	/// <summary>
+	/// Start this instance.
+	/// </summary>
 	void Start () 
 	{
 		rigidBodyR = GetComponent<Rigidbody2D> ();
@@ -25,24 +27,25 @@ public class RightBullet : MonoBehaviour {
 	{
 		rigidBodyR.velocity = speed;
 
+
 	}
+	/// <summary>
+	/// Raises the trigger enter2 d event. I
+	/// </summary>
+	/// <param name="col">Col.</param>
 	void OnTriggerEnter2D(Collider2D col)
 	{
-		//all projectile colliding game objects should be tagged "Enemy" or whatever in inspector but that tag must be reflected in the below if conditional
+		//all projectile colliding game objects should be tagged "Enemy".
 		if (col.gameObject.tag == "Enemy") {
 			col.gameObject.GetComponent<EnemyHealth> ().TakeDamage (damage);
 			FindObjectOfType<AudioManager> ().Play ("Hit");
 
-			//add an explosion or something
+
 			//destroy the projectile that just caused the trigger collision
 			Destroy (gameObject);
 		}
 		if (col.gameObject.tag == "Walls") {
 			Destroy (gameObject);
 		}
-	}
-	public void AddDamage(int damagePlus) 
-	{
-		damage += damagePlus;
 	}
 }

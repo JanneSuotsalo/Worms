@@ -42,7 +42,10 @@ public class PlayerController : MonoBehaviour
 
 	public float knockbackCount, knockback, knockbackLength;
 	public bool knockFromRight;
-
+	 
+	/// <summary>
+	/// Awakes buttons.
+	/// </summary>
 	void Awake ()
 	{
 		bLeft = GameObject.Find ("LeftButton").GetComponent<ButtonController> ();
@@ -57,7 +60,7 @@ public class PlayerController : MonoBehaviour
 	/// <param name="horizontal">Horizontal.</param>
 	protected void HandleMovement (float horizontal)
 	{
-		//Running
+		//Running and knockback
 		if (knockbackCount <= 0) {
 			myRigibody.velocity = new Vector2 (horizontal * movementSpeed, myRigibody.velocity.y);
 			animator.SetFloat ("Speed", Mathf.Abs (horizontal));
@@ -160,7 +163,6 @@ public class PlayerController : MonoBehaviour
 		shoot = false;
 
 		//Jumping
-
 		if (Input.GetKey (KeyCode.W) || bJump.GetButtonPressed ()) {
 			jump = true;
 		}
@@ -179,7 +181,6 @@ public class PlayerController : MonoBehaviour
 		if (Input.GetKey (KeyCode.K) || bShoot.GetButtonPressed ()) {
 			shoot = true;
 		}
-		//Running with buttons
 
 	}
 

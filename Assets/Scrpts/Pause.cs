@@ -13,6 +13,9 @@ public class Pause : MonoBehaviour
 	private ButtonController menuButton;
 	private Player player;
 
+	/// <summary>
+	/// Awake this instance.
+	/// </summary>
 	void Awake ()
 	{
 		menuButton = GameObject.Find ("MenuButton").GetComponent<ButtonController> ();
@@ -21,17 +24,27 @@ public class Pause : MonoBehaviour
 		player = GameObject.FindGameObjectWithTag ("Player").GetComponent<Player> ();
 	}
 
+	/// <summary>
+	/// Raises the pause event.
+	/// </summary>
 	public void OnPause ()
 	{
 		PauseMenu.SetActive (true);
 		Time.timeScale = 0;
 	}
 
+	/// <summary>
+	/// Uns the pause.
+	/// </summary>
 	public void UnPause ()
 	{
 		PauseMenu.SetActive (false);
 		Time.timeScale = 1;
 	}
+
+	/// <summary>
+	/// Pauses the button.
+	/// </summary>
 	void PauseButton ()
 	{
 		if (!paused) {
@@ -46,10 +59,16 @@ public class Pause : MonoBehaviour
 		}
 	}
 		
+	/// <summary>
+	/// Continue this instance.
+	/// </summary>
 	public void Continue () {
 		UnPause ();
 	}
 
+	/// <summary>
+	/// Restart this instance.
+	/// </summary>
 	public void Restart () {
 		SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
 	}
