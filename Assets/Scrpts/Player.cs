@@ -21,7 +21,6 @@ public class Player : PlayerController {
 		myRigibody = GetComponent<Rigidbody2D> ();
 		facingRight = true;
 		crouch = false;
-		haveGun = true;
 		shoot = false;
 		shootingPos = transform.Find ("shootingPos");
 	}

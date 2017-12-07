@@ -27,7 +27,9 @@ public class PlayerController : MonoBehaviour
 	[SerializeField]
 	protected LayerMask whatIsGround;
 
-	protected bool isGrounded, crouch, jump, facingRight, shoot, haveGun;
+	protected bool isGrounded, crouch, jump, facingRight, shoot;
+
+	public bool haveGun;
 
 	[SerializeField]
 	protected float jumpForce;

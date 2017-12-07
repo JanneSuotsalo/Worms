@@ -43,7 +43,7 @@ public class Bat : MonoBehaviour {
 		}
 	}
 	void OnTriggerEnter2D(Collider2D col) {
-		if (col.CompareTag ("Block")) {
+		if (col.CompareTag ("Walls")) {
 			Vector3 currRot = myTrans.eulerAngles;
 			currRot.y += 180;
 			myTrans.eulerAngles = currRot;
