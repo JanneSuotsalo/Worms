@@ -105,10 +105,11 @@ public class Player : PlayerController {
 
 	public void Die() {	
 		//restart
-		curHealth = respawnHealth;
-		transform.position = respawnPoint;
-		enemy.currentHealth = enemy.respawnHealth;
-		enemy.transform.position = enemy.respawnPosition;
+		SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
+//		curHealth = respawnHealth;
+//		transform.position = respawnPoint;
+//		enemy.currentHealth = enemy.respawnHealth;
+//		enemy.transform.position = enemy.respawnPosition;
 		FindObjectOfType<AudioManager> ().Play ("Death");
 
 	}
