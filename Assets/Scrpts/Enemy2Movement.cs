@@ -72,4 +72,11 @@ public class Enemy2Movement : EnemyShooting {
 		myVelocity.x = -myTrans.right.x * speed;
 		myRigibody.velocity = myVelocity;
 	}
+	void OnTriggerEnter2D(Collider2D col) {
+		if (col.CompareTag ("Walls")) {
+			Vector3 currRot = myTrans.eulerAngles;
+			currRot.y += 180;
+			myTrans.eulerAngles = currRot;
+		}
+	}
 }
