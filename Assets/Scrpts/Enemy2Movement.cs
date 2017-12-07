@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Enemy2 movement.
+/// </summary>
 public class Enemy2Movement : EnemyShooting {
 
 	Animator animator;
@@ -12,7 +15,9 @@ public class Enemy2Movement : EnemyShooting {
 	Transform myTrans;
 	float myWidth;
 
-
+	/// <summary>
+	/// Start this instance.
+	/// </summary>
 	void Start () 
 	{
 		myTrans = this.transform;
@@ -22,7 +27,9 @@ public class Enemy2Movement : EnemyShooting {
 		facingRight = false;
 		shootingPos = transform.Find ("shootingPos");
 	}
-		
+		/// <summary>
+		/// Update this instance.
+		/// </summary>
 	void Update() {
 		
 		Raycasting ();
@@ -32,7 +39,9 @@ public class Enemy2Movement : EnemyShooting {
 				time -= Time.deltaTime;
 		}
 	}
-
+	/// <summary>
+	/// Fixeds the update.
+	/// </summary>
 	void FixedUpdate () {
 
 		Raycasting ();
@@ -72,6 +81,10 @@ public class Enemy2Movement : EnemyShooting {
 		myVelocity.x = -myTrans.right.x * speed;
 		myRigibody.velocity = myVelocity;
 	}
+	/// <summary>
+	/// Raises the trigger enter2 d event.
+	/// </summary>
+	/// <param name="col">Col.</param>
 	void OnTriggerEnter2D(Collider2D col) {
 		if (col.CompareTag ("Walls")) {
 			Vector3 currRot = myTrans.eulerAngles;

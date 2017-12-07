@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Boss movement.
+/// </summary>
 public class BossMovement : BossShooting {
 
 	Animator animator;
@@ -12,8 +15,9 @@ public class BossMovement : BossShooting {
 	Transform myTrans;
 	float myWidth, myHeight;
 
-
-
+	/// <summary>
+	/// Start this instance.
+	/// </summary>
 	void Start () 
 	{
 		myTrans = this.transform;
@@ -24,7 +28,9 @@ public class BossMovement : BossShooting {
 		shootingPos = transform.Find ("shootingPos");
 		SpriteRenderer mySprite = this.GetComponent<SpriteRenderer> ();
 	}
-
+	/// <summary>
+	/// Update this instance.
+	/// </summary>
 	void Update() {
 
 		Raycasting ();
@@ -34,7 +40,9 @@ public class BossMovement : BossShooting {
 				time -= Time.deltaTime;
 		}
 	}
-
+	/// <summary>
+	/// Fixeds the update.
+	/// </summary>
 	void FixedUpdate () {
 
 		Raycasting ();
@@ -98,7 +106,10 @@ public class BossMovement : BossShooting {
 		myVelocity.x = -myTrans.right.x * speed;
 		myRigibody.velocity = myVelocity;
 	}
-
+	/// <summary>
+	/// Raises the trigger enter2 d event.
+	/// </summary>
+	/// <param name="col">Col.</param>
 	void OnTriggerEnter2D(Collider2D col) {
 
 		if (col.CompareTag ("Block")) {

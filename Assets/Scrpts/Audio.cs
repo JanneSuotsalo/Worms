@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
+/// <summary>
+/// Audio.
+/// </summary>
 [System.Serializable]
 public class Audio {
 
@@ -14,7 +17,6 @@ public class Audio {
 	public float volume;
 	[Range(.01f, 3f)]
 	public float pitch;
-
 	[HideInInspector]
 	public AudioSource source;
 }

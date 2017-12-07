@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Bat.
+/// </summary>
 public class Bat : MonoBehaviour {
 
 	protected Animator animator;
@@ -13,6 +16,9 @@ public class Bat : MonoBehaviour {
 	public LayerMask notToHit;
 	public bool canDissapear;
 
+	/// <summary>
+	/// Start this instance.
+	/// </summary>
 	void Start () {
 
 		myTrans = this.transform;
@@ -21,7 +27,9 @@ public class Bat : MonoBehaviour {
 		hasAppeared = false;
 
 	}
-
+	/// <summary>
+	/// Update this instance.
+	/// </summary>
 	void Update() {	
 
 		if (myRenderer.isVisible) {
@@ -33,7 +41,9 @@ public class Bat : MonoBehaviour {
 			}
 		}
 	}
-
+	/// <summary>
+	/// Fixeds the update.
+	/// </summary>
 	void FixedUpdate () {
 		if (hasAppeared) {
 			Vector2 myVelocity = myRigibody.velocity;
@@ -42,6 +52,10 @@ public class Bat : MonoBehaviour {
 			animator.SetFloat ("Speed", speed);
 		}
 	}
+	/// <summary>
+	/// Raises the trigger enter2 d event.
+	/// </summary>
+	/// <param name="col">Col.</param>
 	void OnTriggerEnter2D(Collider2D col) {
 		if (col.CompareTag ("Walls")) {
 			Vector3 currRot = myTrans.eulerAngles;

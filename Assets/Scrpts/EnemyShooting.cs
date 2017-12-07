@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Enemy shooting.
+/// </summary>
 public class EnemyShooting : MonoBehaviour {
 
 	public GameObject LeftBullet,RightBullet;
@@ -16,6 +19,9 @@ public class EnemyShooting : MonoBehaviour {
 	public bool shoot;
 	public int shootTime;
 
+	/// <summary>
+	/// Shoot this instance.
+	/// </summary>
 	public void Shoot()
 	{
 		if (shoot) {
@@ -35,6 +41,9 @@ public class EnemyShooting : MonoBehaviour {
 			shoot = false;
 		}
 	}
+	/// <summary>
+	/// Raycasting this instance.
+	/// </summary>
 	public void Raycasting(){
 		Debug.DrawLine (sightStart.position, sightEnd.position, Color.green);
 		spotted = Physics2D.Linecast (sightStart.position, sightEnd.position, 1 << LayerMask.NameToLayer("Player"));

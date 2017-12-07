@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Bullet enemy.
+/// </summary>
 public class BulletEnemy : MonoBehaviour {
 
 	private Rigidbody2D rigidBodyR;
@@ -12,7 +15,9 @@ public class BulletEnemy : MonoBehaviour {
 
 	public int damage;
 
-	// Use this for initialization
+	/// <summary>
+	/// Start this instance.
+	/// </summary>
 	void Start () 
 	{
 		rigidBodyR = GetComponent<Rigidbody2D> ();
@@ -20,12 +25,18 @@ public class BulletEnemy : MonoBehaviour {
 
 	}
 
-	// Update is called once per frame
+	/// <summary>
+	/// Update this instance.
+	/// </summary>
 	void Update ()
 	{
 		rigidBodyR.velocity = speed;
 
 	}
+	/// <summary>
+	/// Raises the trigger enter2 d event.
+	/// </summary>
+	/// <param name="col">Col.</param>
 	void OnTriggerEnter2D(Collider2D col)
 	{
 		//all projectile colliding game objects should be tagged "Enemy" or whatever in inspector but that tag must be reflected in the below if conditional
