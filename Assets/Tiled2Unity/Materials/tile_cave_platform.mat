@@ -24,5 +24,6 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - PixelSnap: 1
+    - _CutOff: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
