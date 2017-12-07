@@ -17,3 +17,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Map2.unity
     guid: 9fb9fb0bae2ce1843822feefe39b1272
+  - enabled: 1
+    path: Assets/Map3.unity
+    guid: e072d2326fda56a4a8fc25215c362e16
