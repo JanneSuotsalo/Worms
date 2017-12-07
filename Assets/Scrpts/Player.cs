@@ -18,6 +18,7 @@ public class Player : PlayerController {
 	// Use this for initialization
 	void Start ()
 	{
+		enemy = GetComponent<EnemyHealth> ();
 		scene = SceneManager.GetActiveScene ();
 		curHealth = maxHealth;
 		animator = GetComponent<Animator> ();
@@ -102,10 +103,12 @@ public class Player : PlayerController {
 		shoot = false;
 	}
 
-	void Die() {	
+	public void Die() {	
 		//restart
 		curHealth = respawnHealth;
 		transform.position = respawnPoint;
+		enemy.currentHealth = enemy.respawnHealth;
+		enemy.transform.position = enemy.respawnPosition;
 		FindObjectOfType<AudioManager> ().Play ("Death");
 
 	}
@@ -126,12 +129,14 @@ public class Player : PlayerController {
 		curHealth += heal;
 		FindObjectOfType<AudioManager> ().Play ("Pickup");
 	}
+
 	void OnTriggerEnter2D(Collider2D other)
 	{
 		if (other.tag == "Checkpoint") {
 			respawnPoint = other.transform.position;
 			respawnHealth = curHealth;
-
+			enemy.respawnHealth = enemy.currentHealth;
+			enemy.respawnPosition = enemy.transform.position;
 		}
 	}
 }
