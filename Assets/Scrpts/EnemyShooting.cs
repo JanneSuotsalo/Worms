@@ -30,11 +30,11 @@ public class EnemyShooting : MonoBehaviour {
 				//Facing direction
 				if (facingRight) {
 					Instantiate (RightBullet, shootingPos.position, Quaternion.identity);
-					FindObjectOfType<AudioManager> ().Play ("Flame");
+					FindObjectOfType<AudioManager> ().Play ("Shoot");
 				}
 				if (!facingRight) {
 					Instantiate (LeftBullet, shootingPos.position, Quaternion.identity);
-					FindObjectOfType<AudioManager> ().Play ("Flame");
+					FindObjectOfType<AudioManager> ().Play ("Shoot");
 				}
 				time = 0.2f * shootTime;
 			}
